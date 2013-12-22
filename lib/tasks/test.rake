@@ -1,11 +1,11 @@
 namespace :db do
   desc "Fill database with jeans"
   task test_populate: :environment do
-    make_items
+    make_test_items
   end
 end
 
-def make_items
+def make_test_items
 	#1 3sixteen SL-100x
 	Garment.create!(model: "SL-100x",
 				   brand: "3sixteen",
