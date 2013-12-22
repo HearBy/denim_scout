@@ -8,17 +8,13 @@
 	</div>
 	<div class="large-9 columns">
 		<% @jeans.each_slice(3) do |three_jeans| %>
-			<div class="row"  style="padding-top:40px">
+			<div class="row">
 				<% three_jeans.each do |jean| %>
-					<div class="large-4 columns left">
+					<div class="large-4 columns left jean_container">
 						<%= render "jean", jean: jean %>
 					</div>
 				<% end %>
 			</div>
 		<% end %>
 	</div>
-</div>
-
-<div class="test_class">
-	TEST
 </div>
