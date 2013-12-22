@@ -15,7 +15,7 @@ describe Item do
 	it { should respond_to(:leg_opening) }
 	it { should respond_to(:inseam) }
 	it { should respond_to(:tag_size) }
-	it { should respond_to(:model_id) }
+	it { should respond_to(:garment_id) }
 
 	it { should validate_numericality_of(:waist).is_greater_than_or_equal_to(26).is_less_than_or_equal_to(42) }
 	it { should validate_numericality_of(:front_rise).is_greater_than_or_equal_to(8).is_less_than_or_equal_to(13) }
@@ -55,10 +55,10 @@ describe Item do
 
 	describe "price_search" do
 		before do
-			@cheap_model = create(:model, price: 100)
-			@expensive_model = create(:model, price: 200)
-			@cheap_jean = create(:item, model: @cheap_model)
-			@expensive_jean = create(:item, model: @expensive_model)
+			@cheap_garment = create(:garment, price: 100)
+			@expensive_garment = create(:garment, price: 200)
+			@cheap_jean = create(:item, garment: @cheap_garment)
+			@expensive_jean = create(:item, garment: @expensive_garment)
 		end
 
 		it "should find the jean with price I'm looking for" do
@@ -73,10 +73,10 @@ describe Item do
 
 	describe "fit_search" do
 		before do
-			@skinny_model = 		create(:model, fit: "skinny")
-			@slim_straight_model =  create(:model, fit: "slim straight")
-			@skinny_jean = create(:item, model: @skinny_model)
-			@slim_straight_jean = create(:item, model: @slim_straight_model)
+			@skinny_garment = 		create(:garment, fit: "skinny")
+			@slim_straight_garment =  create(:garment, fit: "slim straight")
+			@skinny_jean = create(:item, garment: @skinny_garment)
+			@slim_straight_jean = create(:item, garment: @slim_straight_garment)
 		end
 
 		it "should find the jean with the fit I'm looking for" do

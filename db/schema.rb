@@ -11,7 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131222173623) do
+ActiveRecord::Schema.define(version: 20131222174918) do
+
+  create_table "garments", force: true do |t|
+    t.string   "model"
+    t.string   "brand"
+    t.string   "fabric_origin"
+    t.string   "made_in"
+    t.decimal  "price"
+    t.decimal  "denim_weight"
+    t.string   "color"
+    t.string   "fit"
+    t.boolean  "sanforized"
+    t.boolean  "stretch"
+    t.boolean  "selvedge"
+    t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "items", force: true do |t|
     t.integer  "tag_size"
@@ -21,7 +38,7 @@ ActiveRecord::Schema.define(version: 20131222173623) do
     t.decimal  "knee"
     t.decimal  "leg_opening"
     t.decimal  "inseam"
-    t.integer  "model_id"
+    t.integer  "garment_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
