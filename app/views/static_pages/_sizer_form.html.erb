@@ -1,0 +1,61 @@
+<%= form_tag root_path, :method => 'get', :id => "test", class: "custom" do %>
+	<div class="row">
+		<div class="large-12 columns">
+			<label for="amount-waist">Waist Size:</label>
+			<input type="text" id="amount-waist" style="border: 0; color: #f6931f; font-weight: bold;" />
+            <div class="slider-single">
+                <div id="slider-waist"></div>
+            </div><br>
+            <%= hidden_field_tag :waist, params[:waist], value: params[:waist] || 32 %>	
+		</div>
+	</div>
+
+	<br>
+
+	<div class="row">
+		<div class="large-12 columns">
+			<label for="amount-price">Price range:</label>
+			<input type="text" id="amount-price" style="border: 0; color: #f6931f; font-weight: bold;" />
+			<div id="slider-price" style="width:90%;"></div>
+			<%= hidden_field_tag :min_price, params[:min_price], value: params[:min_price] || 0 %>
+			<%= hidden_field_tag :max_price, params[:max_price], value: params[:max_price] || 500 %>
+		</div>
+	</div>
+
+	<br>
+
+	<div class="row">
+		<div class="large-12 columns">
+		<!-- <label for="checkbox1">
+				<input type="checkbox" id="fit" name="fit[]" value="slim straight" style="display: none;">
+				<span class="custom checkbox"></span> 
+				Slim Straight
+			</label> -->
+			<h6>Fit</h6>
+			<div>
+				<%= check_box_tag 'fit[]', "slim straight", 
+						params[:fit] ? params[:fit].include?("slim straight") : false %>
+				Slim Straight
+			</div>
+			<div>	
+				<%= check_box_tag 'fit[]', "straight", 
+						params[:fit] ? params[:fit].include?("straight") : false %>
+				Straight
+			</div>
+			<div>	
+				<%= check_box_tag 'fit[]', "skinny", 
+						params[:fit] ? params[:fit].include?("skinny") : false %>
+				Skinny
+			</div>
+			<div>	
+				<%= check_box_tag 'fit[]', "tapered", 
+						params[:fit] ? params[:fit].include?("tapered") : false %>
+				Tapered
+			</div>
+		</div>
+	</div>
+
+	<br>
+
+	<%= submit_tag "Search", :name => nil, class: "button small radius" %>
+<% end %>
