@@ -32,6 +32,7 @@ describe Garment do
 	it { should validate_presence_of(:url) }
 
 	it { should validate_numericality_of(:price).is_greater_than_or_equal_to(20).is_less_than_or_equal_to(1000) }
+	it { should validate_numericality_of(:denim_weight).is_greater_than_or_equal_to(4).is_less_than_or_equal_to(32) }
 
 	describe "when fit is not one of 4 options" do
 		before { @garment.fit = "test" }
@@ -82,6 +83,18 @@ describe Garment do
 
 			describe "not valid" do
 			    before { @garment.fit = "Tapered" }
+			    it { should_not be_valid }
+			end
+		end
+
+		describe "slim tapered" do
+			describe "valid" do
+			    before { @garment.fit = "slim tapered" }
+			    it { should be_valid }
+			end
+
+			describe "not valid" do
+			    before { @garment.fit = "Slim tapered" }
 			    it { should_not be_valid }
 			end
 		end

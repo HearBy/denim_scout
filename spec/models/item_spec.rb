@@ -18,12 +18,12 @@ describe Item do
 	it { should respond_to(:garment_id) }
 
 	it { should validate_numericality_of(:waist).is_greater_than_or_equal_to(26).is_less_than_or_equal_to(42) }
-	it { should validate_numericality_of(:front_rise).is_greater_than_or_equal_to(8).is_less_than_or_equal_to(13) }
-	it { should validate_numericality_of(:thigh) }
-	it { should validate_numericality_of(:knee) }
-	it { should validate_numericality_of(:leg_opening) }
-	it { should validate_numericality_of(:inseam) }
-	it { should validate_numericality_of(:tag_size) }
+	it { should validate_numericality_of(:front_rise).is_greater_than_or_equal_to(8).is_less_than_or_equal_to(14) }
+	it { should validate_numericality_of(:thigh).is_greater_than_or_equal_to(10).is_less_than_or_equal_to(15) }
+	it { should validate_numericality_of(:knee).is_greater_than_or_equal_to(6).is_less_than_or_equal_to(12) }
+	it { should validate_numericality_of(:leg_opening).is_greater_than_or_equal_to(5).is_less_than_or_equal_to(12) }
+	it { should validate_numericality_of(:inseam).is_greater_than_or_equal_to(28).is_less_than_or_equal_to(40) }
+	it { should validate_numericality_of(:tag_size).is_greater_than_or_equal_to(25).is_less_than_or_equal_to(43) }
 
 	describe "true_waist_search" do
 		before do

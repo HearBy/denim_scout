@@ -12,4 +12,5 @@ class Garment < ActiveRecord::Base
 	validates :url, presence: true
 
 	validates_numericality_of :price, greater_than_or_equal_to: 20, less_than_or_equal_to: 1000
+	validates_numericality_of :denim_weight, greater_than_or_equal_to: 4, less_than_or_equal_to: 32
 end
