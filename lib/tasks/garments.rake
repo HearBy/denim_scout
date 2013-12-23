@@ -27,7 +27,7 @@ def make_garments
 				   fabric_origin: "Kuroki Mills",
 				   made_in: "USA",
 				   denim_weight: 14.5,
-				   fit: "skinny",
+				   fit: "slim tapered",
 				   sanforized: true,
 				   stretch: false,
 				   selvedge: true,
@@ -84,7 +84,7 @@ def make_garments
 				   made_in: "China",
 				   denim_weight: 12,
 				   sanforized: true,
-				   fit: "skinny",
+				   fit: "slim tapered",
 				   stretch: true,
 				   selvedge: true,
 				   price: 185.00,
@@ -224,7 +224,7 @@ def make_garments
 				   fabric_origin: "Kaihara Mills",
 				   made_in: "USA",
 				   denim_weight: 12.5,
-				   fit: "skinny",
+				   fit: "slim tapered",
 				   sanforized: true,
 				   stretch: false,
 				   selvedge: true,
@@ -272,6 +272,20 @@ def make_garments
 				   selvedge: true,
 				   price: 200.00,
 				   url: "http://www.blueowl.us/product/naked-and-famous-super-skinny-guy-16oz-okayama-spirit-unsanforized-selvedge-denim/")
+
+	#20 PBJ xx-014
+	Garment.create!(model: "XX-014",
+				   brand: "Pure Blue Japan",
+				   color: "Indigo x Purple",
+				   fabric_origin: "Japan",
+				   made_in: "Japan",
+				   denim_weight: 14,
+				   fit: "slim tapered",
+				   sanforized: false,
+				   stretch: false,
+				   selvedge: true,
+				   price: 315.00,
+				   url: "http://blueingreensoho.com/site/index.php?page=shop.product_details&flypage=shop.flypage&product_id=14614&category_id=&manufacturer_id=9&option=com_virtuemart&Itemid=28")
 
 
 end

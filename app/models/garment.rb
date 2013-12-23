@@ -8,7 +8,7 @@ class Garment < ActiveRecord::Base
 	validates :price, presence: true
 	validates :denim_weight, presence: true
 	validates :color, presence: true
-	validates :fit, presence: true, :inclusion => { :in => ["straight", "slim straight", "skinny", "tapered"] }
+	validates :fit, presence: true, :inclusion => { :in => ["straight", "slim straight", "skinny", "tapered", "slim tapered"] }
 	validates :url, presence: true
 
 	validates_numericality_of :price, greater_than_or_equal_to: 20, less_than_or_equal_to: 1000
