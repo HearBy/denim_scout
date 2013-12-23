@@ -2,8 +2,6 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.0.0'
 
-gem 'sqlite3'
-
 gem 'jquery-ui-rails'
 
 gem 'sass-rails', '~> 4.0.0'
@@ -28,6 +26,7 @@ end
 
 group :development, :test do
   gem 'rspec-rails', '2.13.1'
+  gem 'sqlite3'
 end
 
 group :test do
