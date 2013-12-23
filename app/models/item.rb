@@ -3,7 +3,7 @@ class Item < ActiveRecord::Base
 
 	validates_numericality_of :waist, 		greater_than_or_equal_to: 26, less_than_or_equal_to: 42
 	validates_numericality_of :front_rise, 	greater_than_or_equal_to: 8, less_than_or_equal_to: 14
-	validates_numericality_of :thigh, 		greater_than_or_equal_to: 10, less_than_or_equal_to: 15 
+	validates_numericality_of :thigh, 		greater_than_or_equal_to: 9, less_than_or_equal_to: 15 
 	validates_numericality_of :knee, 		greater_than_or_equal_to: 6, less_than_or_equal_to: 12
 	validates_numericality_of :leg_opening, greater_than_or_equal_to: 5, less_than_or_equal_to: 12
 	validates_numericality_of :inseam, 		greater_than_or_equal_to: 28, less_than_or_equal_to: 40

@@ -19,7 +19,7 @@ describe Item do
 
 	it { should validate_numericality_of(:waist).is_greater_than_or_equal_to(26).is_less_than_or_equal_to(42) }
 	it { should validate_numericality_of(:front_rise).is_greater_than_or_equal_to(8).is_less_than_or_equal_to(14) }
-	it { should validate_numericality_of(:thigh).is_greater_than_or_equal_to(10).is_less_than_or_equal_to(15) }
+	it { should validate_numericality_of(:thigh).is_greater_than_or_equal_to(9).is_less_than_or_equal_to(15) }
 	it { should validate_numericality_of(:knee).is_greater_than_or_equal_to(6).is_less_than_or_equal_to(12) }
 	it { should validate_numericality_of(:leg_opening).is_greater_than_or_equal_to(5).is_less_than_or_equal_to(12) }
 	it { should validate_numericality_of(:inseam).is_greater_than_or_equal_to(28).is_less_than_or_equal_to(40) }
