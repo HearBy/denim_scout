@@ -52,6 +52,11 @@
 						params[:fit] ? params[:fit].include?("tapered") : false %>
 				Tapered
 			</div>
+			<div>	
+				<%= check_box_tag 'fit[]', "slim tapered", 
+						params[:fit] ? params[:fit].include?("slim tapered") : false %>
+				Slim Tapered
+			</div>
 		</div>
 	</div>
 
