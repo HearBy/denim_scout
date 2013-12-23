@@ -33,4 +33,40 @@ class Item < ActiveRecord::Base
 			all
 		end
 	end
+
+	def self.front_rise_search(front_rise_size)
+		if front_rise_size
+			where('front_rise <= ?', (front_rise_size.to_d + 0.5))
+			.where('front_rise >= ?', (front_rise_size.to_d - 0.5))
+		else
+			all
+		end
+	end
+
+	def self.thigh_search(thigh_size)
+		if thigh_size
+			where('thigh <= ?', (thigh_size.to_d + 0.5))
+			.where('thigh >= ?', (thigh_size.to_d - 0.5))
+		else
+			all
+		end
+	end
+
+	def self.knee_search(knee_size)
+		if knee_size
+			where('knee <= ?', (knee_size.to_d + 0.5))
+			.where('knee >= ?', (knee_size.to_d - 0.5))
+		else
+			all
+		end
+	end
+
+	def self.leg_opening_search(leg_opening_size)
+		if leg_opening_size
+			where('leg_opening <= ?', (leg_opening_size.to_d + 0.5))
+			.where('leg_opening >= ?', (leg_opening_size.to_d - 0.5))
+		else
+			all
+		end
+	end
 end

@@ -94,4 +94,116 @@ describe Item do
 			Item.fit_search(nil).should include(@skinny_jean && @slim_straight_jean)
 		end
 	end
+
+	describe "front_rise_search" do
+		before do
+			@small_jean = create(:item, front_rise: 10)
+			@large_jean = create(:item, front_rise: 11)
+		end
+
+		it "should find the jean size I'm looking for" do
+			Item.front_rise_search(10).should include(@small_jean)
+			Item.front_rise_search(10).should_not include(@large_jean)
+		end
+
+		it "should give me all jeans with no params[:waist]" do
+			Item.front_rise_search(nil).should include(@small_jean && @large_jean)
+		end
+
+		describe "with half inch jeans in either direction" do
+			before do
+				@half_up = create(:item, front_rise: 10.5)
+				@half_down = create(:item, front_rise: 11)
+			end
+
+			it "should find the jean size I'm looking for" do
+				Item.front_rise_search(10).should include(@small_jean && @half_down && @half_up)
+				Item.front_rise_search(10).should_not include(@large_jean)
+			end
+		end
+	end
+
+	describe "thigh_search" do
+		before do
+			@small_jean = create(:item, thigh: 10)
+			@large_jean = create(:item, thigh: 11)
+		end
+
+		it "should find the jean size I'm looking for" do
+			Item.thigh_search(10).should include(@small_jean)
+			Item.thigh_search(10).should_not include(@large_jean)
+		end
+
+		it "should give me all jeans with no params[:waist]" do
+			Item.thigh_search(nil).should include(@small_jean && @large_jean)
+		end
+
+		describe "with half inch jeans in either direction" do
+			before do
+				@half_up = create(:item, thigh: 10.5)
+				@half_down = create(:item, thigh: 11)
+			end
+
+			it "should find the jean size I'm looking for" do
+				Item.thigh_search(10).should include(@small_jean && @half_down && @half_up)
+				Item.thigh_search(10).should_not include(@large_jean)
+			end
+		end
+	end
+
+	describe "knee_search" do
+		before do
+			@small_jean = create(:item, knee: 10)
+			@large_jean = create(:item, knee: 11)
+		end
+
+		it "should find the jean size I'm looking for" do
+			Item.knee_search(10).should include(@small_jean)
+			Item.knee_search(10).should_not include(@large_jean)
+		end
+
+		it "should give me all jeans with no params[:waist]" do
+			Item.knee_search(nil).should include(@small_jean && @large_jean)
+		end
+
+		describe "with half inch jeans in either direction" do
+			before do
+				@half_up = create(:item, knee: 10.5)
+				@half_down = create(:item, knee: 11)
+			end
+
+			it "should find the jean size I'm looking for" do
+				Item.knee_search(10).should include(@small_jean && @half_down && @half_up)
+				Item.knee_search(10).should_not include(@large_jean)
+			end
+		end
+	end
+
+	describe "leg_opening_search" do
+		before do
+			@small_jean = create(:item, leg_opening: 10)
+			@large_jean = create(:item, leg_opening: 11)
+		end
+
+		it "should find the jean size I'm looking for" do
+			Item.leg_opening_search(10).should include(@small_jean)
+			Item.leg_opening_search(10).should_not include(@large_jean)
+		end
+
+		it "should give me all jeans with no params[:waist]" do
+			Item.leg_opening_search(nil).should include(@small_jean && @large_jean)
+		end
+
+		describe "with half inch jeans in either direction" do
+			before do
+				@half_up = create(:item, leg_opening: 10.5)
+				@half_down = create(:item, leg_opening: 11)
+			end
+
+			it "should find the jean size I'm looking for" do
+				Item.leg_opening_search(10).should include(@small_jean && @half_down && @half_up)
+				Item.leg_opening_search(10).should_not include(@large_jean)
+			end
+		end
+	end
 end
