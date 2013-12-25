@@ -24,76 +24,34 @@
 
 	<br>
 
-	<div class="row">
-		<div class="large-12 columns">
-		<!-- <label for="checkbox1">
-				<input type="checkbox" id="fit" name="fit[]" value="slim straight" style="display: none;">
-				<span class="custom checkbox"></span> 
-				Slim Straight
-			</label> -->
-			<h6>Fit:</h6>
-			<% for i in Garment.select(:fit).uniq.map(&:fit).sort_by{|e| e} %>
-				<div>
-					<%= check_box_tag 'fit[]', i, 
-						params[:fit] ? params[:fit].include?(i) : false %>
-					<%= i.capitalize %>
+	<% if params[:front_rise] %>
+		<%= render "measurements" %>
+	<% else %>
+		<div class="fit_container">
+			<div class="row">
+				<div class="large-12 columns">
+					<h6>Fit:</h6>
+					<% for i in Garment.select(:fit).uniq.map(&:fit).sort_by{|e| e} %>
+						<div>
+							<%= check_box_tag 'fit[]', i, 
+								params[:fit] ? params[:fit].include?(i) : false %>
+							<%= i.capitalize %>
+						<!-- <label for="checkbox_<%= i.gsub(' ', '_') %>">
+								<input type="checkbox" id="checkbox_<%= i.gsub(' ', '_') %>" name="fit[]" value="<%= i %>" style="display: none;">
+								<span class="custom checkbox"></span> 
+								<%= i.capitalize %>
+							</label> -->
+						</div>
+					<% end %>
+				
+					<%= link_to "Advanced Measurements", root_path, class: "advanced_link", remote: true %>
 				</div>
-			<% end %>
+			</div>
 		</div>
-	</div>
 
-	<br>
+		<span class="measurements_container"></span>
+	<% end %>
 
-	<div class="row">
-		<div class="large-12 columns">
-			<label for="amount-front_rise">Front Rise Size:</label>
-			<input type="text" id="amount-front_rise" style="border: 0; color: #f6931f; font-weight: bold;" />
-			<div class="slider-single">
-				<div id="slider-front_rise"></div>
-			</div><br>
-			<%= hidden_field_tag :front_rise, params[:front_rise], value: params[:front_rise] || 10 %>
-		</div>
-	</div>
-
-	<br>
-
-	<div class="row">
-		<div class="large-12 columns">
-			<label for="amount-thigh">Thigh Size:</label>
-			<input type="text" id="amount-thigh" style="border: 0; color: #f6931f; font-weight: bold;" />
-			<div class="slider-single">
-				<div id="slider-thigh"></div>
-			</div><br>
-			<%= hidden_field_tag :thigh, params[:thigh], value: params[:thigh] || 11 %>
-		</div>
-	</div>
-
-	<br>
-
-	<div class="row">
-		<div class="large-12 columns">
-			<label for="amount-knee">Knee Size:</label>
-			<input type="text" id="amount-knee" style="border: 0; color: #f6931f; font-weight: bold;" />
-			<div class="slider-single">
-				<div id="slider-knee"></div>
-			</div><br>
-			<%= hidden_field_tag :knee, params[:knee], value: params[:knee] || 8 %>
-		</div>
-	</div>
-
-	<br>
-
-	<div class="row">
-		<div class="large-12 columns">
-			<label for="amount-leg_opening">Leg Opening Size:</label>
-			<input type="text" id="amount-leg_opening" style="border: 0; color: #f6931f; font-weight: bold;" />
-			<div class="slider-single">
-				<div id="slider-leg_opening"></div>
-			</div><br>
-			<%= hidden_field_tag :leg_opening, params[:leg_opening], value: params[:leg_opening] || 8.2 %>
-		</div>
-	</div>
-	
 	<br>
 
 	<div class="row">

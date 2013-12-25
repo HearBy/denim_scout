@@ -55,7 +55,7 @@
 
   			$(function() {
 			    $( "#slider-thigh" ).slider({
-			      value: [ <%= params[:thigh].present? ? params[:thigh] : 11 %> ],
+			      value: [ <%= params[:thigh].present? ? params[:thigh] : 11.5 %> ],
 			      min: 9,
 			      max: 15,
 			      step: 0.02,
@@ -83,7 +83,7 @@
 
   			$(function() {
 			    $( "#slider-leg_opening" ).slider({
-			      value: [ <%= params[:leg_opening].present? ? params[:leg_opening] : 8 %> ],
+			      value: [ <%= params[:leg_opening].present? ? params[:leg_opening] : 7.5 %> ],
 			      min: 6,
 			      max: 10,
 			      step: 0.02,
