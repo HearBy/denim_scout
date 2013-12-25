@@ -31,7 +31,8 @@
 			<div class="row">
 				<div class="large-12 columns">
 					<h6>Fit:</h6>
-					<% for i in Garment.select(:fit).uniq.map(&:fit).sort_by{|e| e} %>
+					<%# for i in Garment.select(:fit).uniq.map(&:fit).sort_by{|e| e} %>
+					<% for i in @jeans.map{|i| i.garment.fit}.uniq %>
 						<div>
 							<%= check_box_tag 'fit[]', i, 
 								params[:fit] ? params[:fit].include?(i) : false %>
@@ -57,7 +58,8 @@
 	<div class="row">
 		<div class="large-12 columns">
 			<h6>Made in:</h6>
-			<% for i in Garment.select(:made_in).uniq.map(&:made_in).sort_by{|e| e} %>
+			<%# for i in Garment.select(:made_in).uniq.map(&:made_in).sort_by{|e| e} %>
+			<% for i in @jeans.map{|i| i.garment.made_in}.uniq %>
 				<div>
 					<%= check_box_tag 'made_in[]', i, 
 						params[:made_in] ? params[:made_in].include?(i) : false %>
@@ -72,7 +74,8 @@
 	<div class="row">
 		<div class="large-12 columns">
 			<h6>Fabric Origin:</h6>
-			<% for i in Garment.select(:fabric_origin).uniq.map(&:fabric_origin).sort_by{|e| e} %>
+			<%# for i in Garment.select(:fabric_origin).uniq.map(&:fabric_origin).sort_by{|e| e} %>
+			<% for i in @jeans.map{|i| i.garment.fabric_origin}.uniq %>
 				<div>
 					<%= check_box_tag 'fabric_origin[]', i, 
 						params[:fabric_origin] ? params[:fabric_origin].include?(i) : false %>
@@ -87,7 +90,8 @@
 	<div class="row">
 		<div class="large-12 columns">
 			<h6>Color:</h6>
-			<% for i in Garment.select(:color).uniq.map(&:color).sort_by{|e| e} %>
+			<%# for i in Garment.select(:color).uniq.map(&:color).sort_by{|e| e} %>
+			<% for i in @jeans.map{|i| i.garment.color}.uniq %>
 				<div>
 					<%= check_box_tag 'color[]', i, 
 						params[:color] ? params[:color].include?(i) : false %>
@@ -102,7 +106,8 @@
 	<div class="row">
 		<div class="large-12 columns">
 			<h6>Brand:</h6>
-			<% for i in Garment.select(:brand).uniq.map(&:brand).sort_by{|e| e} %>
+			<%# for i in Garment.select(:brand).uniq.map(&:brand).sort_by{|e| e} %>
+			<% for i in @jeans.map{|i| i.garment.brand}.uniq %>
 				<div>
 					<%= check_box_tag 'brand[]', i, 
 						params[:brand] ? params[:brand].include?(i) : false %>
