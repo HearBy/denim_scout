@@ -31,32 +31,14 @@
 				<span class="custom checkbox"></span> 
 				Slim Straight
 			</label> -->
-			<h6>Fit</h6>
-			<div>
-				<%= check_box_tag 'fit[]', "slim straight", 
-						params[:fit] ? params[:fit].include?("slim straight") : false %>
-				Slim Straight
-			</div>
-			<div>	
-				<%= check_box_tag 'fit[]', "straight", 
-						params[:fit] ? params[:fit].include?("straight") : false %>
-				Straight
-			</div>
-			<div>	
-				<%= check_box_tag 'fit[]', "skinny", 
-						params[:fit] ? params[:fit].include?("skinny") : false %>
-				Skinny
-			</div>
-			<div>	
-				<%= check_box_tag 'fit[]', "tapered", 
-						params[:fit] ? params[:fit].include?("tapered") : false %>
-				Tapered
-			</div>
-			<div>	
-				<%= check_box_tag 'fit[]', "slim tapered", 
-						params[:fit] ? params[:fit].include?("slim tapered") : false %>
-				Slim Tapered
-			</div>
+			<h6>Fit:</h6>
+			<% for i in Garment.select(:fit).uniq.map(&:fit).sort_by{|e| e} %>
+				<div>
+					<%= check_box_tag 'fit[]', i, 
+						params[:fit] ? params[:fit].include?(i) : false %>
+					<%= i.capitalize %>
+				</div>
+			<% end %>
 		</div>
 	</div>
 
@@ -112,6 +94,66 @@
 		</div>
 	</div>
 	
+	<br>
+
+	<div class="row">
+		<div class="large-12 columns">
+			<h6>Made in:</h6>
+			<% for i in Garment.select(:made_in).uniq.map(&:made_in).sort_by{|e| e} %>
+				<div>
+					<%= check_box_tag 'made_in[]', i, 
+						params[:made_in] ? params[:made_in].include?(i) : false %>
+					<%= i %>
+				</div>
+			<% end %>
+		</div>
+	</div>
+
+	<br>
+
+	<div class="row">
+		<div class="large-12 columns">
+			<h6>Fabric Origin:</h6>
+			<% for i in Garment.select(:fabric_origin).uniq.map(&:fabric_origin).sort_by{|e| e} %>
+				<div>
+					<%= check_box_tag 'fabric_origin[]', i, 
+						params[:fabric_origin] ? params[:fabric_origin].include?(i) : false %>
+					<%= i %>
+				</div>
+			<% end %>
+		</div>
+	</div>
+
+	<br>
+
+	<div class="row">
+		<div class="large-12 columns">
+			<h6>Color:</h6>
+			<% for i in Garment.select(:color).uniq.map(&:color).sort_by{|e| e} %>
+				<div>
+					<%= check_box_tag 'color[]', i, 
+						params[:color] ? params[:color].include?(i) : false %>
+					<%= i %>
+				</div>
+			<% end %>
+		</div>
+	</div>
+
+	<br>
+
+	<div class="row">
+		<div class="large-12 columns">
+			<h6>Brand:</h6>
+			<% for i in Garment.select(:brand).uniq.map(&:brand).sort_by{|e| e} %>
+				<div>
+					<%= check_box_tag 'brand[]', i, 
+						params[:brand] ? params[:brand].include?(i) : false %>
+					<%= i %>
+				</div>
+			<% end %>
+		</div>
+	</div>
+
 	<br>
 
 	<%= submit_tag "Search", :name => nil, class: "button small radius" %>
