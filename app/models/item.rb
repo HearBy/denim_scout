@@ -9,6 +9,19 @@ class Item < ActiveRecord::Base
 	validates_numericality_of :inseam, 		greater_than_or_equal_to: 28, less_than_or_equal_to: 40
 	validates_numericality_of :tag_size, 	greater_than_or_equal_to: 25, less_than_or_equal_to: 43
 
+	def self.garment_search(column, search)
+		if search && column
+			joins(:garment).where("garments.#{column}" => search)
+		else
+			all
+		end
+	end
+
+
+
+
+
+
 	def self.true_waist_search(waist_size)
 		if waist_size
 			where('waist <= ?', (waist_size.to_d + 0.5))
@@ -26,18 +39,10 @@ class Item < ActiveRecord::Base
 		end
 	end
 
-	def self.fit_search(search)
-		if search
-			joins(:garment).where('garments.fit' => search)
-		else
-			all
-		end
-	end
-
 	def self.front_rise_search(front_rise_size)
 		if front_rise_size
-			where('front_rise <= ?', (front_rise_size.to_d + 0.5))
-			.where('front_rise >= ?', (front_rise_size.to_d - 0.5))
+			where('front_rise <= ?', (front_rise_size.to_d + 0.25))
+			.where('front_rise >= ?', (front_rise_size.to_d - 0.25))
 		else
 			all
 		end
@@ -45,8 +50,8 @@ class Item < ActiveRecord::Base
 
 	def self.thigh_search(thigh_size)
 		if thigh_size
-			where('thigh <= ?', (thigh_size.to_d + 0.5))
-			.where('thigh >= ?', (thigh_size.to_d - 0.5))
+			where('thigh <= ?', (thigh_size.to_d + 0.25))
+			.where('thigh >= ?', (thigh_size.to_d - 0.25))
 		else
 			all
 		end
@@ -54,8 +59,8 @@ class Item < ActiveRecord::Base
 
 	def self.knee_search(knee_size)
 		if knee_size
-			where('knee <= ?', (knee_size.to_d + 0.5))
-			.where('knee >= ?', (knee_size.to_d - 0.5))
+			where('knee <= ?', (knee_size.to_d + 0.25))
+			.where('knee >= ?', (knee_size.to_d - 0.25))
 		else
 			all
 		end
@@ -63,8 +68,8 @@ class Item < ActiveRecord::Base
 
 	def self.leg_opening_search(leg_opening_size)
 		if leg_opening_size
-			where('leg_opening <= ?', (leg_opening_size.to_d + 0.5))
-			.where('leg_opening >= ?', (leg_opening_size.to_d - 0.5))
+			where('leg_opening <= ?', (leg_opening_size.to_d + 0.25))
+			.where('leg_opening >= ?', (leg_opening_size.to_d - 0.25))
 		else
 			all
 		end

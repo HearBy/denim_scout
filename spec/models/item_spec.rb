@@ -25,6 +25,128 @@ describe Item do
 	it { should validate_numericality_of(:inseam).is_greater_than_or_equal_to(28).is_less_than_or_equal_to(40) }
 	it { should validate_numericality_of(:tag_size).is_greater_than_or_equal_to(25).is_less_than_or_equal_to(43) }
 
+	describe "garment_search" do
+		describe "fit" do
+			before do
+				@skinny_garment = 		 create(:garment, fit: "skinny")
+				@slim_straight_garment = create(:garment, fit: "slim straight")
+				@skinny_jean = 			 create(:item, garment: @skinny_garment)
+				@slim_straight_jean = 	 create(:item, garment: @slim_straight_garment)
+			end
+
+			it "should find the jean with the fit I'm looking for" do
+				Item.garment_search('fit', "skinny").should include(@skinny_jean)
+				Item.garment_search('fit', "skinny").should_not include(@slim_straight_jean)
+				Item.garment_search('fit', "slim straight").should include(@slim_straight_jean)
+				Item.garment_search('fit', "slim straight").should_not include(@skinny_jean)
+			end
+
+			it "should be able to find more than one fit type" do
+				Item.garment_search('fit', ["skinny", "slim straight"]).should include(@skinny_jean && @slim_straight_jean)
+			end
+
+			it "should give me all jeans with no params[:fit]" do
+				Item.garment_search('fit', nil).should include(@skinny_jean && @slim_straight_jean)
+			end
+		end
+
+		describe "made_in" do
+			before do
+				@USA_garment = 	 create(:garment, made_in: "USA")
+				@Japan_garment = create(:garment, made_in: "Japan")
+				@USA_jean = 	 create(:item, garment: @USA_garment)
+				@Japan_jean = 	 create(:item, garment: @Japan_garment)
+			end
+
+			it "should find the jean with the made_in I'm looking for" do
+				Item.garment_search('made_in', "USA").should include(@USA_jean)
+				Item.garment_search('made_in', "USA").should_not include(@Japan_jean)
+				Item.garment_search('made_in', "Japan").should include(@Japan_jean)
+				Item.garment_search('made_in', "Japan").should_not include(@USA_jean)
+			end
+
+			it "should be able to find more than one made_in type" do
+				Item.garment_search('made_in', ["USA", "Japan"]).should include(@USA_jean && @Japan_jean)
+			end
+
+			it "should give me all jeans with no params[:made_in]" do
+				Item.garment_search('made_in', nil).should include(@USA_jean && @Japan_jean)
+			end
+		end
+
+		describe "fabric_origin" do
+			before do
+				@kuroki_mills_garment = create(:garment, fabric_origin: "Kuroki Mills")
+				@Japan_garment = 		create(:garment, fabric_origin: "Japan")
+				@kuroki_mills_jean = 	create(:item, garment: @kuroki_mills_garment)
+				@Japan_jean = 	 		create(:item, garment: @Japan_garment)
+			end
+
+			it "should find the jean with the fabric_origin I'm looking for" do
+				Item.garment_search('fabric_origin', "Kuroki Mills").should include(@kuroki_mills_jean)
+				Item.garment_search('fabric_origin', "Kuroki Mills").should_not include(@Japan_jean)
+				Item.garment_search('fabric_origin', "Japan").should include(@Japan_jean)
+				Item.garment_search('fabric_origin', "Japan").should_not include(@kuroki_mills_jean)
+			end
+
+			it "should be able to find more than one fabric_origin type" do
+				Item.garment_search('fabric_origin', ["Kuroki Mills", "Japan"]).should include(@kuroki_mills_jean && @Japan_jean)
+			end
+
+			it "should give me all jeans with no params[:fabric_origin]" do
+				Item.garment_search('fabric_origin', nil).should include(@kuroki_mills_jean && @Japan_jean)
+			end
+		end
+
+		describe "color" do
+			before do
+				@indigo_garment = create(:garment, color: "Indigo")
+				@black_garment =  create(:garment, color: "black")
+				@indigo_jean = 	  create(:item, garment: @indigo_garment)
+				@black_jean = 	  create(:item, garment: @black_garment)
+			end
+
+			it "should find the jean with the color I'm looking for" do
+				Item.garment_search('color', "Indigo").should include(@indigo_jean)
+				Item.garment_search('color', "Indigo").should_not include(@black_jean)
+				Item.garment_search('color', "black").should include(@black_jean)
+				Item.garment_search('color', "black").should_not include(@indigo_jean)
+			end
+
+			it "should be able to find more than one color type" do
+				Item.garment_search('color', ["Indigo", "black"]).should include(@indigo_jean && @black_jean)
+			end
+
+			it "should give me all jeans with no params[:color]" do
+				Item.garment_search('color', nil).should include(@indigo_jean && @black_jean)
+			end
+		end
+
+		describe "brand" do
+			before do
+				@sixteen_garment = create(:garment, brand: "3sixteen")
+				@unbranded_garment =  create(:garment, brand: "Unbranded")
+				@sixteen_jean = 	  create(:item, garment: @sixteen_garment)
+				@unbranded_jean = 	  create(:item, garment: @unbranded_garment)
+			end
+
+			it "should find the jean with the brand I'm looking for" do
+				Item.garment_search('brand', "3sixteen").should include(@sixteen_jean)
+				Item.garment_search('brand', "3sixteen").should_not include(@unbranded_jean)
+				Item.garment_search('brand', "Unbranded").should include(@unbranded_jean)
+				Item.garment_search('brand', "Unbranded").should_not include(@sixteen_jean)
+			end
+
+			it "should be able to find more than one brand type" do
+				Item.garment_search('brand', ["3sixteen", "Unbranded"]).should include(@sixteen_jean && @unbranded_jean)
+			end
+
+			it "should give me all jeans with no params[:brand]" do
+				Item.garment_search('brand', nil).should include(@sixteen_jean && @unbranded_jean)
+			end
+		end
+	end
+
 	describe "true_waist_search" do
 		before do
 			@small_jean = create(:item, waist: 32)
@@ -71,30 +193,6 @@ describe Item do
 		end
 	end
 
-	describe "fit_search" do
-		before do
-			@skinny_garment = 		create(:garment, fit: "skinny")
-			@slim_straight_garment =  create(:garment, fit: "slim straight")
-			@skinny_jean = create(:item, garment: @skinny_garment)
-			@slim_straight_jean = create(:item, garment: @slim_straight_garment)
-		end
-
-		it "should find the jean with the fit I'm looking for" do
-			Item.fit_search("skinny").should include(@skinny_jean)
-			Item.fit_search("skinny").should_not include(@slim_straight_jean)
-			Item.fit_search("slim straight").should include(@slim_straight_jean)
-			Item.fit_search("slim straight").should_not include(@skinny_jean)
-		end
-
-		it "should be able to find more than one fit type" do
-			Item.fit_search(["skinny", "slim straight"]).should include(@skinny_jean && @slim_straight_jean)
-		end
-
-		it "should give me all jeans with no params[:fit]" do
-			Item.fit_search(nil).should include(@skinny_jean && @slim_straight_jean)
-		end
-	end
-
 	describe "front_rise_search" do
 		before do
 			@small_jean = create(:item, front_rise: 10)
@@ -110,9 +208,9 @@ describe Item do
 			Item.front_rise_search(nil).should include(@small_jean && @large_jean)
 		end
 
-		describe "with half inch jeans in either direction" do
+		describe "with quarter inch jeans in either direction" do
 			before do
-				@half_up = create(:item, front_rise: 10.5)
+				@half_up = create(:item, front_rise: 10.25)
 				@half_down = create(:item, front_rise: 11)
 			end
 
@@ -138,9 +236,9 @@ describe Item do
 			Item.thigh_search(nil).should include(@small_jean && @large_jean)
 		end
 
-		describe "with half inch jeans in either direction" do
+		describe "with quarter inch jeans in either direction" do
 			before do
-				@half_up = create(:item, thigh: 10.5)
+				@half_up = create(:item, thigh: 10.25)
 				@half_down = create(:item, thigh: 11)
 			end
 
@@ -166,9 +264,9 @@ describe Item do
 			Item.knee_search(nil).should include(@small_jean && @large_jean)
 		end
 
-		describe "with half inch jeans in either direction" do
+		describe "with quarter inch jeans in either direction" do
 			before do
-				@half_up = create(:item, knee: 10.5)
+				@half_up = create(:item, knee: 10.25)
 				@half_down = create(:item, knee: 11)
 			end
 
@@ -194,9 +292,9 @@ describe Item do
 			Item.leg_opening_search(nil).should include(@small_jean && @large_jean)
 		end
 
-		describe "with half inch jeans in either direction" do
+		describe "with quarter inch jeans in either direction" do
 			before do
-				@half_up = create(:item, leg_opening: 10.5)
+				@half_up = create(:item, leg_opening: 10.25)
 				@half_down = create(:item, leg_opening: 11)
 			end
 

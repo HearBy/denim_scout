@@ -6,7 +6,11 @@ class StaticPagesController < ApplicationController
   	jeans = jeans.thigh_search(params[:thigh])
   	jeans = jeans.knee_search(params[:knee])
   	jeans = jeans.leg_opening_search(params[:leg_opening])
-  	@jeans = jeans.fit_search(params[:fit])
+  	jeans = jeans.garment_search('fit', params[:fit])
+    jeans = jeans.garment_search('made_in', params[:made_in])
+    jeans = jeans.garment_search('fabric_origin', params[:fabric_origin])
+    jeans = jeans.garment_search('color', params[:color])
+    @jeans = jeans.garment_search('brand', params[:brand])
   end
 
   def help

@@ -8,7 +8,7 @@ describe StaticPagesController do
 				@large_jean = create(:item, waist: 33)
 			end
 
-			it "should only return locations with microposts" do
+			it "should only return jeans with that query" do
 				get :home, { :waist => 32 }
 				assigns(:jeans).map(&:id).should == [@small_jean.id]
 			end
@@ -22,23 +22,81 @@ describe StaticPagesController do
 				@expensive_jean = 	 create(:item, garment: @expensive_garment)
 			end
 
-			it "should only return locations with microposts" do
+			it "should only return jeans with that query" do
 				get :home, { :min_price => 75, :max_price => 150 }
 				assigns(:jeans).map(&:id).should == [@cheap_jean.id]
 			end
 		end
 
-		describe "fit_search" do
-			before do
-				@skinny_garment = 		 create(:garment, fit: "skinny")
-				@slim_straight_garment = create(:garment, fit: "slim straight")
-				@skinny_jean = 			 create(:item, garment: @skinny_garment)
-				@slim_straight_jean = 	 create(:item, garment: @slim_straight_garment)
+		describe "garment_search" do
+			describe "fit" do
+				before do
+					@skinny_garment = 		 create(:garment, fit: "skinny")
+					@slim_straight_garment = create(:garment, fit: "slim straight")
+					@skinny_jean = 			 create(:item, garment: @skinny_garment)
+					@slim_straight_jean = 	 create(:item, garment: @slim_straight_garment)
+				end
+
+				it "should only return jeans with that query" do
+					get :home, { :fit => "skinny" }
+					assigns(:jeans).map(&:id).should == [@skinny_jean.id]
+				end
 			end
 
-			it "should only return locations with microposts" do
-				get :home, { :fit => "skinny" }
-				assigns(:jeans).map(&:id).should == [@skinny_jean.id]
+			describe "made_in" do
+				before do
+					@USA_garment = 	 create(:garment, made_in: "USA")
+					@Japan_garment = create(:garment, made_in: "Japan")
+					@USA_jean = 	 create(:item, garment: @USA_garment)
+					@Japan_jean = 	 create(:item, garment: @Japan_garment)
+				end
+
+				it "should only return jeans with that query" do
+					get :home, { :made_in => "USA" }
+					assigns(:jeans).map(&:id).should == [@USA_jean.id]
+				end
+			end
+
+			describe "fabric_origin" do
+				before do
+					@kuroki_mills_garment = create(:garment, fabric_origin: "Kuroki Mills")
+					@Japan_garment = 		create(:garment, fabric_origin: "Japan")
+					@kuroki_mills_jean = 	create(:item, garment: @kuroki_mills_garment)
+					@Japan_jean = 	 		create(:item, garment: @Japan_garment)
+				end
+
+				it "should only return jeans with that query" do
+					get :home, { :fabric_origin => "Kuroki Mills" }
+					assigns(:jeans).map(&:id).should == [@kuroki_mills_jean.id]
+				end
+			end
+
+			describe "color" do
+				before do
+					@indigo_garment = create(:garment, color: "Indigo")
+					@black_garment =  create(:garment, color: "black")
+					@indigo_jean = 	  create(:item, garment: @indigo_garment)
+					@black_jean = 	  create(:item, garment: @black_garment)
+				end
+
+				it "should only return jeans with that query" do
+					get :home, { :color => "Indigo" }
+					assigns(:jeans).map(&:id).should == [@indigo_jean.id]
+				end
+			end
+
+			describe "brand" do
+				before do
+					@sixteen_garment = create(:garment, brand: "3sixteen")
+					@unbranded_garment =  create(:garment, brand: "Unbranded")
+					@sixteen_jean = 	  create(:item, garment: @sixteen_garment)
+					@unbranded_jean = 	  create(:item, garment: @unbranded_garment)
+				end
+
+				it "should only return jeans with that query" do
+					get :home, { :brand => "3sixteen" }
+					assigns(:jeans).map(&:id).should == [@sixteen_jean.id]
+				end
 			end
 		end
 
@@ -48,7 +106,7 @@ describe StaticPagesController do
 				@large_jean = create(:item, front_rise: 11)
 			end
 
-			it "should only return locations with microposts" do
+			it "should only return jeans with that query" do
 				get :home, { :front_rise => 10 }
 				assigns(:jeans).map(&:id).should == [@small_jean.id]
 			end
@@ -60,7 +118,7 @@ describe StaticPagesController do
 				@large_jean = create(:item, thigh: 11)
 			end
 
-			it "should only return locations with microposts" do
+			it "should only return jeans with that query" do
 				get :home, { :thigh => 10 }
 				assigns(:jeans).map(&:id).should == [@small_jean.id]
 			end
@@ -72,7 +130,7 @@ describe StaticPagesController do
 				@large_jean = create(:item, knee: 11)
 			end
 
-			it "should only return locations with microposts" do
+			it "should only return jeans with that query" do
 				get :home, { :knee => 10 }
 				assigns(:jeans).map(&:id).should == [@small_jean.id]
 			end
@@ -84,7 +142,7 @@ describe StaticPagesController do
 				@large_jean = create(:item, leg_opening: 11)
 			end
 
-			it "should only return locations with microposts" do
+			it "should only return jeans with that query" do
 				get :home, { :leg_opening => 10 }
 				assigns(:jeans).map(&:id).should == [@small_jean.id]
 			end
