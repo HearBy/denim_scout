@@ -5,3 +5,43 @@
 .jean_container {
 	padding-top:40px;
 }
+
+// MODALS
+
+.reveal-modal {
+	width:700px;
+	left:60%;
+}
+
+.modal-image {
+	width:250px;
+}
+
+.modal-brand {
+	font-size:1.7em;
+	font-weight: bold;
+}
+
+.modal-model {
+	font-size:1.4em;
+}
+
+.modal-fit {
+	font-size:1.4em;
+	font-weight:lighter;
+}
+
+.modal-price {
+	font-size:1.5em;
+	font-weight:lighter;
+}
+
+.modal-disclaimer {
+	font-size: 0.8em;
+	font-style: italic;
+	color: #A0A0A0;
+}
+
+.modal-button {
+	background-color:red;
+}

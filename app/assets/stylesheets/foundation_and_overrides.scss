@@ -1180,7 +1180,7 @@ $default-float: left;
 // These control the background color for the table and even rows
 
 // $table-bg: #fff;
-// $table-even-row-bg: #f9f9f9;
+$table-even-row-bg: #F0F0F0;
 
 // These control the table cell border style
 
@@ -1199,7 +1199,7 @@ $default-float: left;
 // These control the row padding and font styles
 
 // $table-row-padding: em-calc(9 10);
-// $table-row-font-size: em-calc(14);
+$table-row-font-size: em-calc(12);
 // $table-row-font-color: #222;
 // $table-line-height: em-calc(18);
 

@@ -1,6 +1,11 @@
+<div id="my_<%= jean.id %>" class="reveal-modal">
+	<%= render "jean_modal", jean: jean %>
+	<a class="close-reveal-modal">&#215;</a>
+</div>
+
 <div class="row">
 	<div class="large-12 columns">
-		<b><%= jean.garment.brand %></b>
+		<b><%= link_to jean.garment.brand, '#', "data-reveal-id" => "my_#{jean.id}"  %></b>
 	</div>
 </div>
 
