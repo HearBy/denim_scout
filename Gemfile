@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.0.0'
+gem 'pg'
 
 gem 'jquery-ui-rails'
 
@@ -26,7 +27,6 @@ end
 
 group :development, :test do
   gem 'rspec-rails', '2.13.1'
-  gem 'sqlite3'
 end
 
 group :test do
@@ -37,7 +37,6 @@ group :test do
 end
 
 group :production do
-  gem 'pg', '0.15.1'
   gem 'rails_12factor', '0.0.2'
 end
 
