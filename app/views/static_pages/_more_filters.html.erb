@@ -1,0 +1,138 @@
+<br>
+
+<div class="row">
+	<div class="large-12 columns">
+		<h6>Made in:</h6>
+		<%# for i in Garment.select(:made_in).uniq.map(&:made_in).sort_by{|e| e} %>
+		<% for i in @jeans.map{|i| i.garment.made_in}.uniq.sort_by{|e| e} %>
+			<label for="checkbox_<%= i.gsub(' ', '_') %>">
+				<%= check_box_tag 'made_in[]', i, 
+						params[:made_in] ? params[:made_in].include?(i) : false, 
+						id: "checkbox_#{i.gsub(' ', '_')}",
+						style: "display: none;",
+						class: "checkboxes" %>
+				<%= i %>
+			</label>
+		<% end %>
+	</div>
+</div>
+
+<br>
+
+<div class="row">
+	<div class="large-12 columns">
+		<h6>Fabric Origin:</h6>
+		<%# for i in Garment.select(:fabric_origin).uniq.map(&:fabric_origin).sort_by{|e| e} %>
+		<% for i in @jeans.map{|i| i.garment.fabric_origin}.uniq.sort_by{|e| e} %>
+			<label for="checkbox_<%= i.gsub(' ', '_') %>">
+				<%= check_box_tag 'fabric_origin[]', i, 
+						params[:fabric_origin] ? params[:fabric_origin].include?(i) : false, 
+						id: "checkbox_#{i.gsub(' ', '_')}",
+						style: "display: none;" %>
+				<%= i %>
+			</label>
+		<% end %>
+	</div>
+</div>
+
+<br>
+
+<div class="row">
+	<div class="large-12 columns">
+		<h6>Color:</h6>
+		<%# for i in Garment.select(:color).uniq.map(&:color).sort_by{|e| e} %>
+		<% for i in @jeans.map{|i| i.garment.color}.uniq.sort_by{|e| e} %>
+			<label for="checkbox_<%= i.gsub(' ', '_') %>">
+				<%= check_box_tag 'color[]', i, 
+						params[:color] ? params[:color].include?(i) : false, 
+						id: "checkbox_#{i.gsub(' ', '_')}",
+						style: "display: none;" %>
+				<%= i %>
+			</label>
+		<% end %>
+	</div>
+</div>
+
+<br>
+
+<div class="row">
+	<div class="large-12 columns">
+		<h6>Brand:</h6>
+		<%# for i in Garment.select(:brand).uniq.map(&:brand).sort_by{|e| e} %>
+		<% for i in @jeans.map{|i| i.garment.brand}.uniq.sort_by{|e| e} %>
+			<label for="checkbox_<%= i.gsub(' ', '_') %>">
+				<%= check_box_tag 'brand[]', i, 
+						params[:brand] ? params[:brand].include?(i) : false, 
+						id: "checkbox_#{i.gsub(' ', '_')}",
+						style: "display: none;" %>
+				<%= i %>
+			</label>
+		<% end %>
+	</div>
+</div>
+
+<br>
+
+<div class="row">
+	<div class="large-12 columns">
+		<h6>Sanforized:</h6>
+		<label for="sanforized_true">
+        	<%= radio_button_tag :sanforized, true, 
+                    (params[:sanforized] == "true" ? true : false),
+                    style: "display: none;" %>
+            Yes
+        </label>
+		<label for="sanforized_false">
+        	<%= radio_button_tag :sanforized, false, 
+                    (params[:sanforized] == "false" ? true : false),
+                    style: "display: none;" %>
+        	No
+        </label>
+		<label for="sanforized_none">
+            <%= radio_button_tag :sanforized, "none", 
+                        (params[:sanforized] == nil || 
+                         params[:sanforized] == "none" ? true : false),
+                    	style: "display: none;" %>
+			No Preference
+		</label>
+	</div>
+</div>
+
+<br>
+
+<div class="row">
+	<div class="large-12 columns">
+		<h6>Selvedge:</h6>
+		<label for="selvedge_true">
+        	<%= radio_button_tag :selvedge, true, 
+                    (params[:selvedge] == "true" ? true : false),
+                    style: "display: none;" %>
+            Yes
+        </label>
+		<label for="selvedge_false">
+        	<%= radio_button_tag :selvedge, false, 
+                    (params[:selvedge] == "false" ? true : false),
+                    style: "display: none;" %>
+        	No
+        </label>
+		<label for="selvedge_none">
+            <%= radio_button_tag :selvedge, "none", 
+                        (params[:selvedge] == nil || 
+                         params[:selvedge] == "none" ? true : false),
+                    	style: "display: none;" %>
+			No Preference
+		</label>
+	</div>
+</div>
+
+<br>
+
+<div class="row">
+	<div class="large-12 columns">
+		<label for="amount-weight">Denim weight:</label>
+		<input type="text" id="amount-weight" style="border: 0; color: #f6931f; font-weight: bold;" />
+        <div id="slider-weight" style="width:90%;"></div>
+        <%= hidden_field_tag :min_denim_weight, params[:min_denim_weight], value: params[:min_denim_weight] || 5 %>
+        <%= hidden_field_tag :max_denim_weight, params[:max_denim_weight], value: params[:max_denim_weight] || 32 %>	
+	</div>
+</div>
