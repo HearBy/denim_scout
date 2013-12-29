@@ -19,12 +19,6 @@ $(".more_filters_link").bind('ajax:success', function() {
 		$( "#amount-weight" ).val($( "#slider-weight" ).slider( "values", 0 ) +
 		" oz - " + $( "#slider-weight" ).slider( "values", 1 ) + " oz" );
 	});
-});
-
-$(".advanced_link").bind('ajax:success', function() { 
-	$('.fit_container').hide();
-	$('.advanced_link').hide();
-	$('.measurements_container').show().html('<%= j render "measurements" %>');
 
 	$(function() {
 	    $( "#slider-front_rise" ).slider({
@@ -81,4 +75,4 @@ $(".advanced_link").bind('ajax:success', function() {
 	    });
 	    $( "#amount-leg_opening" ).val( $( "#slider-leg_opening" ).slider( "value" ) + " inches" );
 	});
-}); 
+});

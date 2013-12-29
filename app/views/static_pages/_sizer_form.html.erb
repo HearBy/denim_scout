@@ -13,6 +13,24 @@
 
 	<div class="row">
 		<div class="large-12 columns">
+			<h6>Fit:</h6>
+			<%# for i in Garment.select(:fit).uniq.map(&:fit).sort_by{|e| e} %>
+			<% for i in @jeans.map{|i| i.garment.fit}.uniq.sort_by{|e| e} %>
+				<label for="checkbox_<%= i.gsub(' ', '_') %>">
+					<%= check_box_tag 'fit[]', i, 
+							params[:fit] ? params[:fit].include?(i) : false, 
+							id: "checkbox_#{i.gsub(' ', '_')}",
+							style: "display: none;" %>
+					<%= i.capitalize %>
+				</label>
+			<% end %>
+		</div>
+	</div>
+
+	<br>
+
+	<div class="row">
+		<div class="large-12 columns">
 			<label for="amount-waist">Waist Size:</label>
 			<input type="text" id="amount-waist" style="border: 0; color: #f6931f; font-weight: bold;" />
             <div class="slider-single">
@@ -23,32 +41,6 @@
 	</div>
 
 	<br>
-
-	<% if params[:front_rise] %>
-		<%= render "measurements" %>
-	<% else %>
-		<div class="fit_container">
-			<div class="row">
-				<div class="large-12 columns">
-					<h6>Fit:</h6>
-					<%# for i in Garment.select(:fit).uniq.map(&:fit).sort_by{|e| e} %>
-					<% for i in @jeans.map{|i| i.garment.fit}.uniq.sort_by{|e| e} %>
-						<label for="checkbox_<%= i.gsub(' ', '_') %>">
-							<%= check_box_tag 'fit[]', i, 
-									params[:fit] ? params[:fit].include?(i) : false, 
-									id: "checkbox_#{i.gsub(' ', '_')}",
-									style: "display: none;" %>
-							<%= i.capitalize %>
-						</label>
-					<% end %>
-				
-					<%= link_to "Advanced Measurements", root_path, class: "advanced_link", remote: true %>
-				</div>
-			</div>
-		</div>
-
-		<span class="measurements_container"></span>
-	<% end %>
 
 	<% if params[:made_in] %>
 		<%= render "more_filters" %>
@@ -61,8 +53,5 @@
 	<% end %>
 
 	<br>
-
-	<%= submit_tag "Search", :name => nil, class: "button small radius" %>
-	<br>
-	<%= link_to "Clear Search", root_path, class: "button small radius alert" %>
+	<%= submit_tag "Search", :name => nil, class: "button small radius", style: "width:100%;" %>
 <% end %>
