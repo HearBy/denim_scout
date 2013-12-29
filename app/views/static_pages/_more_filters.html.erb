@@ -1,23 +1,20 @@
-<%= render "measurements" %>
+<% if params[:front_rise] %>
+	<%= render "measurements" %>
+<% else %>		
+	<%= link_to "Advanced Measurements", root_path, class: "advanced_link", remote: true %>
+
+	<span class="measurements_container"></span>
+<% end %>
 
 <br>
 
-<div class="row">
-	<div class="large-12 columns">
-		<h6>Made in:</h6>
-		<%# for i in Garment.select(:made_in).uniq.map(&:made_in).sort_by{|e| e} %>
-		<% for i in @jeans.map{|i| i.garment.made_in}.uniq.sort_by{|e| e} %>
-			<label for="checkbox_<%= i.gsub(' ', '_') %>">
-				<%= check_box_tag 'made_in[]', i, 
-						params[:made_in] ? params[:made_in].include?(i) : false, 
-						id: "checkbox_#{i.gsub(' ', '_')}",
-						style: "display: none;",
-						class: "checkboxes" %>
-				<%= i %>
-			</label>
-		<% end %>
-	</div>
-</div>
+<% if params[:made_in] %>
+	<%= render "garment_search" %>
+<% else %>
+	<%= link_to "Made In", root_path, class: "made_in_link", remote: true %>
+
+	<span class="made_in_container"></span>
+<% end %>
 
 <br>
 

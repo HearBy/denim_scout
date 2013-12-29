@@ -19,6 +19,17 @@ $(".more_filters_link").bind('ajax:success', function() {
 		$( "#amount-weight" ).val($( "#slider-weight" ).slider( "values", 0 ) +
 		" oz - " + $( "#slider-weight" ).slider( "values", 1 ) + " oz" );
 	});
+});
+
+$(".made_in_link").bind('ajax:success', function() { 
+	$('.made_in_link').hide();
+	$('.made_in_container').show().html('<%= j render "garment_search" %>');
+	$(document).foundation('forms').init();
+});
+
+$(".advanced_link").bind('ajax:success', function() { 
+	$('.advanced_link').hide();
+	$('.measurements_container').show().html('<%= j render "measurements" %>');
 
 	$(function() {
 	    $( "#slider-front_rise" ).slider({

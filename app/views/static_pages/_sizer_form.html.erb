@@ -42,7 +42,7 @@
 
 	<br>
 
-	<% if params[:made_in] %>
+	<% if params[:made_in] || params[:front_rise] %>
 		<%= render "more_filters" %>
 	<% else %>
 		<%= link_to "More Filters", root_path, 
