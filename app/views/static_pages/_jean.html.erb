@@ -5,6 +5,12 @@
 
 <div class="row">
 	<div class="large-12 columns">
+		<%= link_to image_tag(jean.garment.photo_url), '#', "data-reveal-id" => "my_#{jean.id}"  %>
+	</div>
+</div>
+
+<div class="row">
+	<div class="large-12 columns">
 		<b><%= link_to jean.garment.brand, '#', "data-reveal-id" => "my_#{jean.id}"  %></b>
 	</div>
 </div>

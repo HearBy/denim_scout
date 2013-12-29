@@ -31,6 +31,7 @@ describe Garment do
 	it { should validate_presence_of(:color) }
 	it { should validate_presence_of(:fit) }
 	it { should validate_presence_of(:url) }
+	it { should validate_presence_of(:photo_url) }
 
 	it { should validate_numericality_of(:price).is_greater_than_or_equal_to(20).is_less_than_or_equal_to(1000) }
 	it { should validate_numericality_of(:denim_weight).is_greater_than_or_equal_to(4).is_less_than_or_equal_to(32) }

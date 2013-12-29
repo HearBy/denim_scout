@@ -12,7 +12,8 @@ FactoryGirl.define do
 		stretch 	  false
 		selvedge 	  true
 		url 		  "http://www.selfedge.com/shop/index.php?main_page=product_info&cPath=82&products_id=438"
-	
+		photo_url 	  "http://www.selfedge.com/uploaded_images/3sixteen_straight_01_web-784055-713143.jpg"
+
 		# factory :model_with_jeans do
 		# 	ignore do
 		# 		items_count 1

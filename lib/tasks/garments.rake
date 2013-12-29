@@ -18,7 +18,8 @@ def make_garments
 				   sanforized: true,
 				   stretch: false,
 				   selvedge: true,
-				   url: "http://www.selfedge.com/shop/index.php?main_page=product_info&cPath=82&products_id=438",)
+				   url: "http://www.selfedge.com/shop/index.php?main_page=product_info&cPath=82&products_id=438",
+				   photo_url: "http://www.selfedge.com/uploaded_images/3sixteen_straight_01_web-784055-713143.jpg",)
 	
 	#2 3sixteen ST-100x
 	Garment.create!(model: "ST-100x",
@@ -32,7 +33,8 @@ def make_garments
 				   stretch: false,
 				   selvedge: true,
 				   price: 215.00,
-				   url: "http://www.blueowl.us/product/3sixteen-slim-tapered-145oz-selvedge-denim-in-indigo-model-st-100x/")
+				   url: "http://www.blueowl.us/product/3sixteen-slim-tapered-145oz-selvedge-denim-in-indigo-model-st-100x/",
+				   photo_url: "http://www.selfedge.com/uploaded_images/3sixteen_straight_01_web-784055-713143.jpg",)
 
 	#3 Rogue Territory Stanton
 	Garment.create!(model: "Stanton 14.5oz",
@@ -46,7 +48,8 @@ def make_garments
 				   stretch: false,
 				   selvedge: true,
 				   price: 210.00,
-				   url: "http://www.selfedge.com/shop/index.php?main_page=product_info&cPath=82&products_id=438")
+				   url: "http://www.selfedge.com/shop/index.php?main_page=product_info&cPath=82&products_id=438",
+				   photo_url: "http://www.selfedge.com/uploaded_images/3sixteen_straight_01_web-784055-713143.jpg",)
 
 	#4 N&F x Big John x Rockin' Jelly Bean----------------------------
 	Garment.create!(model: "N&F x Big John x Rockin' Jelly Bean Collaboration",
@@ -60,7 +63,8 @@ def make_garments
 				   stretch: false,
 				   selvedge: true,
 				   price: 265.00,
-				   url: "http://www.blueowl.us/product/naked-and-famous-x-big-john-x-rockin-jelly-bean-super-skinny-guy-145oz-ruri-denim-collaboration/")
+				   url: "http://www.blueowl.us/product/naked-and-famous-x-big-john-x-rockin-jelly-bean-super-skinny-guy-145oz-ruri-denim-collaboration/",
+				   photo_url: "http://www.selfedge.com/uploaded_images/3sixteen_straight_01_web-784055-713143.jpg",)
 				   
 	#5 APC New Standard
 	Garment.create!(model: "New Standard",
@@ -74,7 +78,8 @@ def make_garments
 				   stretch: true,
 				   selvedge: true,
 				   price: 185.00,
-				   url: "http://www.contextclothing.com/item.php?id=6")
+				   url: "http://www.contextclothing.com/item.php?id=6",
+				   photo_url: "http://www.selfedge.com/uploaded_images/3sixteen_straight_01_web-784055-713143.jpg",)
 
 	#6 APC Petit Standard
 	Garment.create!(model: "Petit Standard",
@@ -88,7 +93,8 @@ def make_garments
 				   stretch: true,
 				   selvedge: true,
 				   price: 185.00,
-				   url: "http://www.contextclothing.com/item.php?id=665")
+				   url: "http://www.contextclothing.com/item.php?id=665",
+				   photo_url: "http://www.selfedge.com/uploaded_images/3sixteen_straight_01_web-784055-713143.jpg",)
 
 	#7 APC Rescue
 	Garment.create!(model: "Rescue",
@@ -102,7 +108,8 @@ def make_garments
 				   stretch: true,
 				   selvedge: true,
 				   price: 185.00,
-				   url: "http://www.contextclothing.com/item.php?id=7")
+				   url: "http://www.contextclothing.com/item.php?id=7",
+				   photo_url: "http://www.selfedge.com/uploaded_images/3sixteen_straight_01_web-784055-713143.jpg",)
 
 	#8 APC Petit New Standard
 	Garment.create!(model: "Petit New Standard",
@@ -116,7 +123,8 @@ def make_garments
 				   stretch: true,
 				   selvedge: true,
 				   price: 185.00,
-				   url: "http://www.contextclothing.com/item.php?id=3941")
+				   url: "http://www.contextclothing.com/item.php?id=3941",
+				   photo_url: "http://www.selfedge.com/uploaded_images/3sixteen_straight_01_web-784055-713143.jpg",)
 	
 	#9 APC New Cure
 	Garment.create!(model: "New Cure",
@@ -130,7 +138,8 @@ def make_garments
 				   stretch: true,
 				   selvedge: true,
 				   price: 185.00,
-				   url: "http://www.contextclothing.com/item.php?id=29")
+				   url: "http://www.contextclothing.com/item.php?id=29",
+				   photo_url: "http://www.selfedge.com/uploaded_images/3sixteen_straight_01_web-784055-713143.jpg",)
 
 
 	#10 Unbranded 101
@@ -145,7 +154,8 @@ def make_garments
 				   sanforized: false,
 				   stretch: true,
 				   selvedge: false,
-				   url: "http://www.rueandstate.com/collections/unbranded/products/unbranded-101-indigo-skinny-straight-raw-denim")
+				   url: "http://www.rueandstate.com/collections/unbranded/products/unbranded-101-indigo-skinny-straight-raw-denim",
+				   photo_url: "http://www.selfedge.com/uploaded_images/3sixteen_straight_01_web-784055-713143.jpg",)
 
 	#11 Unbranded 201
 	Garment.create!(model: "201",
@@ -159,7 +169,8 @@ def make_garments
 				   stretch: false,
 				   selvedge: true,
 				   price: 78.00,
-				   url: "http://www.rueandstate.com/collections/unbranded/products/unbranded-201-indigo-tapered")
+				   url: "http://www.rueandstate.com/collections/unbranded/products/unbranded-201-indigo-tapered",
+				   photo_url: "http://www.selfedge.com/uploaded_images/3sixteen_straight_01_web-784055-713143.jpg",)
 
 	#12 Unbranded 301
 	Garment.create!(model: "301",
@@ -173,7 +184,8 @@ def make_garments
 				   stretch: false,
 				   selvedge: true,
 				   price: 82.00,
-				   url: "http://www.blueowl.us/product/unbranded-straight-leg-145oz-selvedge-in-indigo-model-ub301/")
+				   url: "http://www.blueowl.us/product/unbranded-straight-leg-145oz-selvedge-in-indigo-model-ub301/",
+				   photo_url: "http://www.selfedge.com/uploaded_images/3sixteen_straight_01_web-784055-713143.jpg",)
 
 	#13 Unbranded 121
 	Garment.create!(model: "121",
@@ -187,7 +199,8 @@ def make_garments
 				   stretch: false,
 				   selvedge: true,
 				   price: 110.00,
-				   url: "http://www.blueowl.us/product/unbranded-skinny-leg-21oz-heavyweight-selvedge-in-indigo-model-ub121/")
+				   url: "http://www.blueowl.us/product/unbranded-skinny-leg-21oz-heavyweight-selvedge-in-indigo-model-ub121/",
+				   photo_url: "http://www.selfedge.com/uploaded_images/3sixteen_straight_01_web-784055-713143.jpg",)
 
 	#14 Unbranded 221
 	Garment.create!(model: "221",
@@ -201,7 +214,8 @@ def make_garments
 				   stretch: false,
 				   selvedge: true,
 				   price: 110.00,
-				   url: "http://www.blueowl.us/product/unbranded-tapered-leg-21oz-heavyweight-selvedge-in-indigo-model-ub221/")
+				   url: "http://www.blueowl.us/product/unbranded-tapered-leg-21oz-heavyweight-selvedge-in-indigo-model-ub221/",
+				   photo_url: "http://www.selfedge.com/uploaded_images/3sixteen_straight_01_web-784055-713143.jpg",)
 
 	#15 Unbranded 321
 	Garment.create!(model: "321",
@@ -215,7 +229,8 @@ def make_garments
 				   stretch: false,
 				   selvedge: true,
 				   price: 110.00,
-				   url: "http://www.blueowl.us/product/unbranded-straight-leg-21oz-heavyweight-selvedge-in-indigo-model-ub321/")
+				   url: "http://www.blueowl.us/product/unbranded-straight-leg-21oz-heavyweight-selvedge-in-indigo-model-ub321/",
+				   photo_url: "http://www.selfedge.com/uploaded_images/3sixteen_straight_01_web-784055-713143.jpg",)
 
 	#16 Baldwin Henley
 	Garment.create!(model: "The Henley",
@@ -229,7 +244,8 @@ def make_garments
 				   stretch: false,
 				   selvedge: true,
 				   price: 220.00,
-				   url: "http://www.blueowl.us/product/baldwin-denim-the-henley-125oz-kaihara-selvedge-denim-in-indigo/")
+				   url: "http://www.blueowl.us/product/baldwin-denim-the-henley-125oz-kaihara-selvedge-denim-in-indigo/",
+				   photo_url: "http://www.selfedge.com/uploaded_images/3sixteen_straight_01_web-784055-713143.jpg",)
 
 	#17 Baldwin Reed
 	Garment.create!(model: "The Reed",
@@ -243,7 +259,8 @@ def make_garments
 				   stretch: false,
 				   selvedge: true,
 				   price: 220.00,
-				   url: "http://www.blueowl.us/product/baldwin-denim-the-reed-14oz-kurabo-selvedge-denim-in-indigo/")
+				   url: "http://www.blueowl.us/product/baldwin-denim-the-reed-14oz-kurabo-selvedge-denim-in-indigo/",
+				   photo_url: "http://www.selfedge.com/uploaded_images/3sixteen_straight_01_web-784055-713143.jpg",)
 
 	#18 Baldwin Samuel
 	Garment.create!(model: "The Samuel",
@@ -257,7 +274,8 @@ def make_garments
 				   stretch: false,
 				   selvedge: true,
 				   price: 265.00,
-				   url: "http://www.blueowl.us/product/baldwin-denim-the-samuel-15oz-kurabo-selvedge-denim-in-indigo/")
+				   url: "http://www.blueowl.us/product/baldwin-denim-the-samuel-15oz-kurabo-selvedge-denim-in-indigo/",
+				   photo_url: "http://www.selfedge.com/uploaded_images/3sixteen_straight_01_web-784055-713143.jpg",)
 
 	#19 N&F Super Skinny Okayama Spirit
 	Garment.create!(model: "Super Skinny Guy Okayama Spirit",
@@ -271,7 +289,8 @@ def make_garments
 				   stretch: false,
 				   selvedge: true,
 				   price: 200.00,
-				   url: "http://www.blueowl.us/product/naked-and-famous-super-skinny-guy-16oz-okayama-spirit-unsanforized-selvedge-denim/")
+				   url: "http://www.blueowl.us/product/naked-and-famous-super-skinny-guy-16oz-okayama-spirit-unsanforized-selvedge-denim/",
+				   photo_url: "http://www.selfedge.com/uploaded_images/3sixteen_straight_01_web-784055-713143.jpg",)
 
 	#20 PBJ xx-014
 	Garment.create!(model: "XX-014",
@@ -285,7 +304,8 @@ def make_garments
 				   stretch: false,
 				   selvedge: true,
 				   price: 315.00,
-				   url: "http://blueingreensoho.com/site/index.php?page=shop.product_details&flypage=shop.flypage&product_id=14614&category_id=&manufacturer_id=9&option=com_virtuemart&Itemid=28")
+				   url: "http://blueingreensoho.com/site/index.php?page=shop.product_details&flypage=shop.flypage&product_id=14614&category_id=&manufacturer_id=9&option=com_virtuemart&Itemid=28",
+				   photo_url: "http://www.selfedge.com/uploaded_images/3sixteen_straight_01_web-784055-713143.jpg",)
 
 
 end
