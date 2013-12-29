@@ -48,6 +48,14 @@ class Item < ActiveRecord::Base
 		end
 	end
 
+	def self.weight_search(min, max)
+		if min && max 
+			joins(:garment).where('garments.denim_weight >= ?', min).where('garments.denim_weight <= ?', max)
+		else
+			all 
+		end
+	end
+
 	def self.front_rise_search(front_rise_size)
 		if front_rise_size
 			where('front_rise <= ?', (front_rise_size.to_d + 0.25))

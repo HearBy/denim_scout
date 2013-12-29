@@ -178,6 +178,18 @@
 
 	<br>
 
+	<div class="row">
+		<div class="large-12 columns">
+			<label for="amount-weight">Denim weight:</label>
+			<input type="text" id="amount-weight" style="border: 0; color: #f6931f; font-weight: bold;" />
+            <div id="slider-weight" style="width:90%;"></div>
+            <%= hidden_field_tag :min_denim_weight, params[:min_denim_weight], value: params[:min_denim_weight] || 5 %>
+            <%= hidden_field_tag :max_denim_weight, params[:max_denim_weight], value: params[:max_denim_weight] || 32 %>	
+		</div>
+	</div>
+
+	<br>
+
 	<%= submit_tag "Search", :name => nil, class: "button small radius" %>
 	<br>
 	<%= link_to "Clear Search", root_path, class: "button small radius alert" %>

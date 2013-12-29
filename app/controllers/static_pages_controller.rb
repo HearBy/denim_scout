@@ -12,7 +12,8 @@ class StaticPagesController < ApplicationController
     jeans = jeans.garment_search('color', params[:color])
     jeans = jeans.garment_search('brand', params[:brand])
     jeans = jeans.boolean_search('sanforized', params[:sanforized])
-    @jeans = jeans.boolean_search('selvedge', params[:selvedge])
+    jeans = jeans.boolean_search('selvedge', params[:selvedge])
+    @jeans = jeans.weight_search(params[:min_denim_weight], params[:max_denim_weight])
   end
 
   def help

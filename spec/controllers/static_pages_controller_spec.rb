@@ -130,6 +130,20 @@ describe StaticPagesController do
 			end
 		end
 
+		describe "weight_search" do
+			before do
+				@light_garment = create(:garment, denim_weight: 12)
+				@heavy_garment = create(:garment, denim_weight: 14.5)
+				@light_jean = 	 create(:item, garment: @light_garment)
+				@heavy_jean = 	 create(:item, garment: @heavy_garment)
+			end
+
+			it "should only return jeans with that query" do
+				get :home, { :min_denim_weight => 11, :max_denim_weight => 13 }
+				assigns(:jeans).map(&:id).should == [@light_jean.id]
+			end
+		end
+
 		describe "front_rise_search" do
 			before do
 				@small_jean = create(:item, front_rise: 10)

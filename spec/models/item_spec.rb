@@ -25,6 +25,52 @@ describe Item do
 	it { should validate_numericality_of(:inseam).is_greater_than_or_equal_to(28).is_less_than_or_equal_to(40) }
 	it { should validate_numericality_of(:tag_size).is_greater_than_or_equal_to(25).is_less_than_or_equal_to(43) }
 
+	describe "true_waist_search" do
+		before do
+			@small_jean = create(:item, waist: 32)
+			@large_jean = create(:item, waist: 33)
+		end
+
+		it "should find the jean size I'm looking for" do
+			Item.true_waist_search(32).should include(@small_jean)
+			Item.true_waist_search(32).should_not include(@large_jean)
+		end
+
+		it "should give me all jeans with no params[:waist]" do
+			Item.true_waist_search(nil).should include(@small_jean && @large_jean)
+		end
+
+		describe "with half inch jeans in either direction" do
+			before do
+				@half_up = create(:item, waist: 32.5)
+				@half_down = create(:item, waist: 31.5) 
+			end
+
+			it "should find the jean size I'm looking for" do
+				Item.true_waist_search(32).should include(@small_jean && @half_down && @half_up)
+				Item.true_waist_search(32).should_not include(@large_jean)
+			end
+		end
+	end
+
+	describe "price_search" do
+		before do
+			@cheap_garment = create(:garment, price: 100)
+			@expensive_garment = create(:garment, price: 200)
+			@cheap_jean = create(:item, garment: @cheap_garment)
+			@expensive_jean = create(:item, garment: @expensive_garment)
+		end
+
+		it "should find the jean with price I'm looking for" do
+			Item.price_search(75, 125).should include(@cheap_jean)
+			Item.price_search(75, 125).should_not include(@expensive_jean)
+		end
+
+		it "should give me all jeans with no params[:min_price] or params[:max_price]" do
+			Item.price_search(nil, nil).should include(@cheap_jean && @expensive_jean)
+		end
+	end
+
 	describe "garment_search" do
 		describe "fit" do
 			before do
@@ -197,49 +243,21 @@ describe Item do
 		end
 	end
 
-	describe "true_waist_search" do
+	describe "weight_search" do
 		before do
-			@small_jean = create(:item, waist: 32)
-			@large_jean = create(:item, waist: 33)
-		end
-
-		it "should find the jean size I'm looking for" do
-			Item.true_waist_search(32).should include(@small_jean)
-			Item.true_waist_search(32).should_not include(@large_jean)
-		end
-
-		it "should give me all jeans with no params[:waist]" do
-			Item.true_waist_search(nil).should include(@small_jean && @large_jean)
-		end
-
-		describe "with half inch jeans in either direction" do
-			before do
-				@half_up = create(:item, waist: 32.5)
-				@half_down = create(:item, waist: 31.5) 
-			end
-
-			it "should find the jean size I'm looking for" do
-				Item.true_waist_search(32).should include(@small_jean && @half_down && @half_up)
-				Item.true_waist_search(32).should_not include(@large_jean)
-			end
-		end
-	end
-
-	describe "price_search" do
-		before do
-			@cheap_garment = create(:garment, price: 100)
-			@expensive_garment = create(:garment, price: 200)
-			@cheap_jean = create(:item, garment: @cheap_garment)
-			@expensive_jean = create(:item, garment: @expensive_garment)
+			@light_garment = create(:garment, denim_weight: 12)
+			@heavy_garment = create(:garment, denim_weight: 14.5)
+			@light_jean = 	 create(:item, garment: @light_garment)
+			@heavy_jean = 	 create(:item, garment: @heavy_garment)
 		end
 
 		it "should find the jean with price I'm looking for" do
-			Item.price_search(75, 125).should include(@cheap_jean)
-			Item.price_search(75, 125).should_not include(@expensive_jean)
+			Item.weight_search(11, 13).should include(@light_jean)
+			Item.weight_search(11, 13).should_not include(@heavy_jean)
 		end
 
-		it "should give me all jeans with no params[:min_price] or params[:max_price]" do
-			Item.price_search(nil, nil).should include(@cheap_jean && @expensive_jean)
+		it "should give me all jeans with no params[:min_denim_weight] or params[:max_denim_weight]" do
+			Item.weight_search(nil, nil).should include(@light_jean && @heavy_jean)
 		end
 	end
 
