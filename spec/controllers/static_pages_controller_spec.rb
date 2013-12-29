@@ -100,6 +100,36 @@ describe StaticPagesController do
 			end
 		end
 
+		describe "boolean_search" do
+			describe "sanforized" do
+				before do
+					@true_garment =   create(:garment, sanforized: true)
+					@false_garment =  create(:garment, sanforized: false)
+					@true_jean = 	  create(:item, garment: @true_garment)
+					@false_jean = 	  create(:item, garment: @false_garment)
+				end
+
+				it "should only return jeans with that query" do
+					get :home, { :sanforized => "true" }
+					assigns(:jeans).map(&:id).should == [@true_jean.id]
+				end
+			end
+
+			describe "selvedge" do
+				before do
+					@true_garment =   create(:garment, selvedge: true)
+					@false_garment =  create(:garment, selvedge: false)
+					@true_jean = 	  create(:item, garment: @true_garment)
+					@false_jean = 	  create(:item, garment: @false_garment)
+				end
+
+				it "should only return jeans with that query" do
+					get :home, { :selvedge => "true" }
+					assigns(:jeans).map(&:id).should == [@true_jean.id]
+				end
+			end
+		end
+
 		describe "front_rise_search" do
 			before do
 				@small_jean = create(:item, front_rise: 10)

@@ -10,7 +10,9 @@ class StaticPagesController < ApplicationController
     jeans = jeans.garment_search('made_in', params[:made_in])
     jeans = jeans.garment_search('fabric_origin', params[:fabric_origin])
     jeans = jeans.garment_search('color', params[:color])
-    @jeans = jeans.garment_search('brand', params[:brand])
+    jeans = jeans.garment_search('brand', params[:brand])
+    jeans = jeans.boolean_search('sanforized', params[:sanforized])
+    @jeans = jeans.boolean_search('selvedge', params[:selvedge])
   end
 
   def help

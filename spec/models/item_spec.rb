@@ -147,6 +147,56 @@ describe Item do
 		end
 	end
 
+	describe "boolean_search" do
+		describe "sanforized" do
+			before do
+				@true_garment =   create(:garment, sanforized: "true")
+				@false_garment =  create(:garment, sanforized: "false")
+				@true_jean = 	  create(:item, garment: @true_garment)
+				@false_jean = 	  create(:item, garment: @false_garment)
+			end
+
+			it "should find the sanforized jean" do
+				Item.boolean_search('sanforized', "true").should include(@true_jean)
+				Item.boolean_search('sanforized', "true").should_not include(@false_jean)
+				Item.boolean_search('sanforized', "false").should include(@false_jean)
+				Item.boolean_search('sanforized', "false").should_not include(@true_jean)
+			end
+
+			it "should give me all the jeans with non-existent param" do
+				Item.boolean_search('sanforized', "test").should include(@true_jean && @false_jean)
+			end
+
+			it "should give me all jeans with no params[:sanforized]" do
+				Item.boolean_search('sanforized', nil).should include(@true_jean && @false_jean)
+			end
+		end
+
+		describe "selvedge" do
+			before do
+				@true_garment =   create(:garment, selvedge: "true")
+				@false_garment =  create(:garment, selvedge: "false")
+				@true_jean = 	  create(:item, garment: @true_garment)
+				@false_jean = 	  create(:item, garment: @false_garment)
+			end
+
+			it "should find the selvedge jean" do
+				Item.boolean_search('selvedge', "true").should include(@true_jean)
+				Item.boolean_search('selvedge', "true").should_not include(@false_jean)
+				Item.boolean_search('selvedge', "false").should include(@false_jean)
+				Item.boolean_search('selvedge', "false").should_not include(@true_jean)
+			end
+
+			it "should give me all the jeans with non-existent param" do
+				Item.boolean_search('selvedge', "test").should include(@true_jean && @false_jean)
+			end
+
+			it "should give me all jeans with no params[:selvedge]" do
+				Item.boolean_search('selvedge', nil).should include(@true_jean && @false_jean)
+			end
+		end
+	end
+
 	describe "true_waist_search" do
 		before do
 			@small_jean = create(:item, waist: 32)

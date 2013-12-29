@@ -151,9 +151,9 @@ def make_garments
 				   denim_weight: 15,
 				   color: "Indigo",
 				   fit: "skinny",
-				   sanforized: false,
-				   stretch: true,
-				   selvedge: false,
+				   sanforized: true,
+				   stretch: false,
+				   selvedge: true,
 				   url: "http://www.rueandstate.com/collections/unbranded/products/unbranded-101-indigo-skinny-straight-raw-denim",
 				   photo_url: "http://www.selfedge.com/uploaded_images/3sixteen_straight_01_web-784055-713143.jpg",)
 

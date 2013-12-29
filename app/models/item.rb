@@ -18,7 +18,16 @@ class Item < ActiveRecord::Base
 	end
 
 
-
+	def self.boolean_search(column, search)
+		case search
+	    when "true"
+	      joins(:garment).where("#{column} = ?", true)
+	    when "false"
+	      joins(:garment).where("#{column} = ?", false)
+	    else
+	      all
+	    end
+	end
 
 
 
