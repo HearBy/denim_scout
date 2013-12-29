@@ -1,7 +1,9 @@
 <% if params[:front_rise] %>
 	<%= render "measurements" %>
 <% else %>		
-	<%= link_to "Advanced Measurements", root_path, class: "advanced_link", remote: true %>
+	<%= link_to "Advanced Measurements", root_path, 
+			class: "advanced_link sizer_button button tiny radius secondary", 
+			remote: true %>
 
 	<span class="measurements_container"></span>
 <% end %>
@@ -11,7 +13,9 @@
 <% if params[:made_in] %>
 	<%= render "garment_search" %>
 <% else %>
-	<%= link_to "Made In", root_path, class: "made_in_link", remote: true %>
+	<%= link_to "Made In", root_path, 
+			class: "made_in_link sizer_button button tiny radius secondary", 
+			remote: true %>
 
 	<span class="made_in_container"></span>
 <% end %>
@@ -128,7 +132,7 @@
 
 <div class="row">
 	<div class="large-12 columns">
-		<label for="amount-weight">Denim weight:</label>
+		<h6>Denim Weight:</h6>
 		<input type="text" id="amount-weight" style="border: 0; color: #f6931f; font-weight: bold;" />
         <div id="slider-weight" style="width:90%;"></div>
         <%= hidden_field_tag :min_denim_weight, params[:min_denim_weight], value: params[:min_denim_weight] || 5 %>

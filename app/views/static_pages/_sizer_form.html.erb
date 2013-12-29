@@ -1,7 +1,7 @@
 <%= form_tag root_path, :method => 'get', :id => "test", class: "custom" do %>
 	<div class="row">
 		<div class="large-12 columns">
-			<label for="amount-price">Price range:</label>
+			<h6>Price Range:</h6>
 			<input type="text" id="amount-price" style="border: 0; color: #f6931f; font-weight: bold;" />
 			<div id="slider-price" style="width:90%;"></div>
 			<%= hidden_field_tag :min_price, params[:min_price], value: params[:min_price] || 0 %>
@@ -31,7 +31,7 @@
 
 	<div class="row">
 		<div class="large-12 columns">
-			<label for="amount-waist">Waist Size:</label>
+			<h6>Waist Size:</h6>
 			<input type="text" id="amount-waist" style="border: 0; color: #f6931f; font-weight: bold;" />
             <div class="slider-single">
                 <div id="slider-waist"></div>
