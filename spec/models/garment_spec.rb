@@ -20,6 +20,7 @@ describe Garment do
 	it { should respond_to(:stretch) }
 	it { should respond_to(:selvedge) }
 	it { should respond_to(:url) }
+	it { should respond_to(:photo_url) }
 
 	it { should validate_presence_of(:model) }
 	it { should validate_presence_of(:brand) }
