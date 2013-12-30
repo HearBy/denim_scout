@@ -5,6 +5,11 @@
 # $(document).on "change", ".checkboxes_made_in", ->
 # 	$(document).find(".clear_made_in").show()
 
+$(document).on "click", ".clear_fit", ->
+	$(".checkboxes_fit").prop("checked", false);
+	$(document).find(".sizer-form").submit()
+	false
+
 $(document).on "click", ".clear_made_in", ->
 	$(".checkboxes_made_in").prop("checked", false);
 	$(document).find(".sizer-form").submit()
