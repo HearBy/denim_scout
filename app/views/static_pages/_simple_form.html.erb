@@ -1,4 +1,4 @@
-<%= form_tag root_path, :method => 'get', :id => "test" do %>
+<%= form_tag root_path, :method => 'get', :id => "test", class: "sizer-form" do %>
 	<div class="row">
 		<div class="large-12 columns">
 			<h6>Price Range:</h6>
@@ -19,8 +19,7 @@
 				<label for="checkbox_<%= i.gsub(' ', '_') %>">
 					<%= check_box_tag 'fit[]', i, 
 							params[:fit] ? params[:fit].include?(i) : false, 
-							id: "checkbox_#{i.gsub(' ', '_')}",
-							style: "display: none;" %>
+							id: "checkbox_#{i.gsub(' ', '_')}" %>
 					<%= i.capitalize %>
 				</label>
 			<% end %>
@@ -53,5 +52,5 @@
 	<% end %>
 
 	<br>
-	<%= submit_tag "Search", :name => nil, class: "button small radius", style: "width:100%;" %>
+	<%= submit_tag "Search", :name => nil, class: "button small radius sizer-button" %>
 <% end %>

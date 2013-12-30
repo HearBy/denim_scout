@@ -19,21 +19,18 @@
 		<h6>Sanforized:</h6>
 		<label for="sanforized_true">
         	<%= radio_button_tag :sanforized, true, 
-                    (params[:sanforized] == "true" ? true : false),
-                    style: "display: none;" %>
+                    (params[:sanforized] == "true" ? true : false) %>
             Yes
         </label>
 		<label for="sanforized_false">
         	<%= radio_button_tag :sanforized, false, 
-                    (params[:sanforized] == "false" ? true : false),
-                    style: "display: none;" %>
+                    (params[:sanforized] == "false" ? true : false) %>
         	No
         </label>
 		<label for="sanforized_none">
             <%= radio_button_tag :sanforized, "none", 
                         (params[:sanforized] == nil || 
-                         params[:sanforized] == "none" ? true : false),
-                    	style: "display: none;" %>
+                         params[:sanforized] == "none" ? true : false) %>
 			No Preference
 		</label>
 	</div>
@@ -46,21 +43,18 @@
 		<h6>Selvedge:</h6>
 		<label for="selvedge_true">
         	<%= radio_button_tag :selvedge, true, 
-                    (params[:selvedge] == "true" ? true : false),
-                    style: "display: none;" %>
+                    (params[:selvedge] == "true" ? true : false) %>
             Yes
         </label>
 		<label for="selvedge_false">
         	<%= radio_button_tag :selvedge, false, 
-                    (params[:selvedge] == "false" ? true : false),
-                    style: "display: none;" %>
+                    (params[:selvedge] == "false" ? true : false) %>
         	No
         </label>
 		<label for="selvedge_none">
             <%= radio_button_tag :selvedge, "none", 
                         (params[:selvedge] == nil || 
-                         params[:selvedge] == "none" ? true : false),
-                    	style: "display: none;" %>
+                         params[:selvedge] == "none" ? true : false) %>
 			No Preference
 		</label>
 	</div>
