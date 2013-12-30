@@ -10,69 +10,19 @@
 
 <br>
 
-<% if params[:made_in] %>
-	<%= render "garment_search" %>
-<% else %>
-	<%= link_to "Made In", root_path, 
-			class: "made_in_link sizer_button button tiny radius secondary", 
-			remote: true %>
-
-	<span class="made_in_container"></span>
-<% end %>
+<%= render "garment_search_show", column: "made_in" %>
 
 <br>
 
-<div class="row">
-	<div class="large-12 columns">
-		<h6>Fabric Origin:</h6>
-		<%# for i in Garment.select(:fabric_origin).uniq.map(&:fabric_origin).sort_by{|e| e} %>
-		<% for i in @jeans.map{|i| i.garment.fabric_origin}.uniq.sort_by{|e| e} %>
-			<label for="checkbox_<%= i.gsub(' ', '_') %>">
-				<%= check_box_tag 'fabric_origin[]', i, 
-						params[:fabric_origin] ? params[:fabric_origin].include?(i) : false, 
-						id: "checkbox_#{i.gsub(' ', '_')}",
-						style: "display: none;" %>
-				<%= i %>
-			</label>
-		<% end %>
-	</div>
-</div>
+<%= render "garment_search_show", column: "fabric_origin" %>
 
 <br>
 
-<div class="row">
-	<div class="large-12 columns">
-		<h6>Color:</h6>
-		<%# for i in Garment.select(:color).uniq.map(&:color).sort_by{|e| e} %>
-		<% for i in @jeans.map{|i| i.garment.color}.uniq.sort_by{|e| e} %>
-			<label for="checkbox_<%= i.gsub(' ', '_') %>">
-				<%= check_box_tag 'color[]', i, 
-						params[:color] ? params[:color].include?(i) : false, 
-						id: "checkbox_#{i.gsub(' ', '_')}",
-						style: "display: none;" %>
-				<%= i %>
-			</label>
-		<% end %>
-	</div>
-</div>
+<%= render "garment_search_show", column: "color" %>
 
 <br>
 
-<div class="row">
-	<div class="large-12 columns">
-		<h6>Brand:</h6>
-		<%# for i in Garment.select(:brand).uniq.map(&:brand).sort_by{|e| e} %>
-		<% for i in @jeans.map{|i| i.garment.brand}.uniq.sort_by{|e| e} %>
-			<label for="checkbox_<%= i.gsub(' ', '_') %>">
-				<%= check_box_tag 'brand[]', i, 
-						params[:brand] ? params[:brand].include?(i) : false, 
-						id: "checkbox_#{i.gsub(' ', '_')}",
-						style: "display: none;" %>
-				<%= i %>
-			</label>
-		<% end %>
-	</div>
-</div>
+<%= render "garment_search_show", column: "brand" %>
 
 <br>
 

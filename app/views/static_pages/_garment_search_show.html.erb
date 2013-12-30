@@ -1,0 +1,9 @@
+<% if params[column.to_sym] %>
+	<%= render "garment_search", column: column, jeans: @jeans %>
+<% else %>
+	<%= link_to column.gsub('_', ' ').capitalize, root_path, 
+			class: "#{column}_link sizer_button button tiny radius secondary", 
+			remote: true %>
+
+	<span class="<%= column %>_container"></span>
+<% end %>

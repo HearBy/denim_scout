@@ -10,7 +10,8 @@ class Item < ActiveRecord::Base
 	validates_numericality_of :tag_size, 	greater_than_or_equal_to: 25, less_than_or_equal_to: 43
 
 	def self.garment_search(column, search)
-		if search && column && Garment.all.map{|i| i.send("#{column}").to_s}.uniq.include?(search)
+		# if search && column && Garment.all.map{|i| i.send("#{column}").to_s}.uniq.include?(search)
+		if search && column
 			joins(:garment).where("garments.#{column}" => search)
 		else
 			all

@@ -42,7 +42,7 @@
 
 	<br>
 
-	<% if params[:made_in] || params[:front_rise] %>
+	<% if params[:made_in] || params[:front_rise] || params[:fabric_origin] || params[:color] || params[:brand] || params[:sanforized] || params[:selvedge] || params[:denim_weight] %>
 		<%= render "more_filters" %>
 	<% else %>
 		<%= link_to "More Filters", root_path, 

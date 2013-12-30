@@ -12,3 +12,19 @@ $(document).on "click", ".hide_made_in_link", ->
 	$(document).find(".made_in_link").show()
 	false
 
+$(document).on "click", ".hide_fabric_origin_link", ->
+	$(document).find(".fabric_origin_container").hide()
+	$(document).find(".fabric_origin_link").show()
+	false
+
+$(document).on "click", ".hide_color_link", ->
+	$(document).find(".color_container").hide()
+	$(document).find(".color_link").show()
+	false
+
+$(document).on "click", ".hide_brand_link", ->
+	$(document).find(".brand_container").hide()
+	$(document).find(".brand_link").show()
+	false
+
+

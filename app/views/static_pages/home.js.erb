@@ -23,7 +23,25 @@ $(".more_filters_link").bind('ajax:success', function() {
 
 $(".made_in_link").bind('ajax:success', function() { 
 	$('.made_in_link').hide();
-	$('.made_in_container').show().html('<%= j render "garment_search" %>');
+	$('.made_in_container').show().html('<%= j render "garment_search", column: "made_in", jeans: @jeans %>');
+	$(document).foundation('forms').init();
+});
+
+$(".fabric_origin_link").bind('ajax:success', function() { 
+	$('.fabric_origin_link').hide();
+	$('.fabric_origin_container').show().html('<%= j render "garment_search", column: "fabric_origin", jeans: @jeans %>');
+	$(document).foundation('forms').init();
+});
+
+$(".color_link").bind('ajax:success', function() { 
+	$('.color_link').hide();
+	$('.color_container').show().html('<%= j render "garment_search", column: "color", jeans: @jeans %>');
+	$(document).foundation('forms').init();
+});
+
+$(".brand_link").bind('ajax:success', function() { 
+	$('.brand_link').hide();
+	$('.brand_container').show().html('<%= j render "garment_search", column: "brand", jeans: @jeans %>');
 	$(document).foundation('forms').init();
 });
 
