@@ -91,6 +91,10 @@ describe Item do
 				Item.garment_search('fit', ["skinny", "slim straight"]).should include(@skinny_jean && @slim_straight_jean)
 			end
 
+			it "should give me all the jeans with non-existent param" do
+				Item.garment_search('fit', "test").should include(@skinny_jean && @slim_straight_jean)
+			end
+
 			it "should give me all jeans with no params[:fit]" do
 				Item.garment_search('fit', nil).should include(@skinny_jean && @slim_straight_jean)
 			end
@@ -113,6 +117,10 @@ describe Item do
 
 			it "should be able to find more than one made_in type" do
 				Item.garment_search('made_in', ["USA", "Japan"]).should include(@USA_jean && @Japan_jean)
+			end
+
+			it "should give me all the jeans with non-existent param" do
+				Item.garment_search('made_in', "test").should include(@USA_jean && @Japan_jean)
 			end
 
 			it "should give me all jeans with no params[:made_in]" do
@@ -139,6 +147,10 @@ describe Item do
 				Item.garment_search('fabric_origin', ["Kuroki Mills", "Japan"]).should include(@kuroki_mills_jean && @Japan_jean)
 			end
 
+			it "should give me all the jeans with non-existent param" do
+				Item.garment_search('fabric_origin', "test").should include(@kuroki_mills_jean && @Japan_jean)
+			end
+
 			it "should give me all jeans with no params[:fabric_origin]" do
 				Item.garment_search('fabric_origin', nil).should include(@kuroki_mills_jean && @Japan_jean)
 			end
@@ -163,6 +175,10 @@ describe Item do
 				Item.garment_search('color', ["Indigo", "black"]).should include(@indigo_jean && @black_jean)
 			end
 
+			it "should give me all the jeans with non-existent param" do
+				Item.garment_search('color', "test").should include(@indigo_jean && @black_jean)
+			end
+
 			it "should give me all jeans with no params[:color]" do
 				Item.garment_search('color', nil).should include(@indigo_jean && @black_jean)
 			end
@@ -185,6 +201,10 @@ describe Item do
 
 			it "should be able to find more than one brand type" do
 				Item.garment_search('brand', ["3sixteen", "Unbranded"]).should include(@sixteen_jean && @unbranded_jean)
+			end
+
+			it "should give me all the jeans with non-existent param" do
+				Item.garment_search('brand', "test").should include(@sixteen_jean && @unbranded_jean)
 			end
 
 			it "should give me all jeans with no params[:brand]" do
