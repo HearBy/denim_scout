@@ -81,10 +81,10 @@ describe Item do
 			end
 
 			it "should find the jean with the fit I'm looking for" do
-				Item.garment_search('fit', "skinny").should include(@skinny_jean)
-				Item.garment_search('fit', "skinny").should_not include(@slim_straight_jean)
-				Item.garment_search('fit', "slim straight").should include(@slim_straight_jean)
-				Item.garment_search('fit', "slim straight").should_not include(@skinny_jean)
+				Item.garment_search('fit', ["skinny"]).should include(@skinny_jean)
+				Item.garment_search('fit', ["skinny"]).should_not include(@slim_straight_jean)
+				Item.garment_search('fit', ["slim straight"]).should include(@slim_straight_jean)
+				Item.garment_search('fit', ["slim straight"]).should_not include(@skinny_jean)
 			end
 
 			it "should be able to find more than one fit type" do
@@ -92,7 +92,7 @@ describe Item do
 			end
 
 			it "should give me all the jeans with non-existent param" do
-				Item.garment_search('fit', "test").should include(@skinny_jean && @slim_straight_jean)
+				Item.garment_search('fit', ["test"]).should include(@skinny_jean && @slim_straight_jean)
 			end
 
 			it "should give me all jeans with no params[:fit]" do
@@ -109,10 +109,10 @@ describe Item do
 			end
 
 			it "should find the jean with the made_in I'm looking for" do
-				Item.garment_search('made_in', "USA").should include(@USA_jean)
-				Item.garment_search('made_in', "USA").should_not include(@Japan_jean)
-				Item.garment_search('made_in', "Japan").should include(@Japan_jean)
-				Item.garment_search('made_in', "Japan").should_not include(@USA_jean)
+				Item.garment_search('made_in', ["USA"]).should include(@USA_jean)
+				Item.garment_search('made_in', ["USA"]).should_not include(@Japan_jean)
+				Item.garment_search('made_in', ["Japan"]).should include(@Japan_jean)
+				Item.garment_search('made_in', ["Japan"]).should_not include(@USA_jean)
 			end
 
 			it "should be able to find more than one made_in type" do
@@ -120,7 +120,7 @@ describe Item do
 			end
 
 			it "should give me all the jeans with non-existent param" do
-				Item.garment_search('made_in', "test").should include(@USA_jean && @Japan_jean)
+				Item.garment_search('made_in', ["test"]).should include(@USA_jean && @Japan_jean)
 			end
 
 			it "should give me all jeans with no params[:made_in]" do
@@ -137,10 +137,10 @@ describe Item do
 			end
 
 			it "should find the jean with the fabric_origin I'm looking for" do
-				Item.garment_search('fabric_origin', "Kuroki Mills").should include(@kuroki_mills_jean)
-				Item.garment_search('fabric_origin', "Kuroki Mills").should_not include(@Japan_jean)
-				Item.garment_search('fabric_origin', "Japan").should include(@Japan_jean)
-				Item.garment_search('fabric_origin', "Japan").should_not include(@kuroki_mills_jean)
+				Item.garment_search('fabric_origin', ["Kuroki Mills"]).should include(@kuroki_mills_jean)
+				Item.garment_search('fabric_origin', ["Kuroki Mills"]).should_not include(@Japan_jean)
+				Item.garment_search('fabric_origin', ["Japan"]).should include(@Japan_jean)
+				Item.garment_search('fabric_origin', ["Japan"]).should_not include(@kuroki_mills_jean)
 			end
 
 			it "should be able to find more than one fabric_origin type" do
@@ -148,7 +148,7 @@ describe Item do
 			end
 
 			it "should give me all the jeans with non-existent param" do
-				Item.garment_search('fabric_origin', "test").should include(@kuroki_mills_jean && @Japan_jean)
+				Item.garment_search('fabric_origin', ["test"]).should include(@kuroki_mills_jean && @Japan_jean)
 			end
 
 			it "should give me all jeans with no params[:fabric_origin]" do
@@ -165,10 +165,10 @@ describe Item do
 			end
 
 			it "should find the jean with the color I'm looking for" do
-				Item.garment_search('color', "Indigo").should include(@indigo_jean)
-				Item.garment_search('color', "Indigo").should_not include(@black_jean)
-				Item.garment_search('color', "black").should include(@black_jean)
-				Item.garment_search('color', "black").should_not include(@indigo_jean)
+				Item.garment_search('color', ["Indigo"]).should include(@indigo_jean)
+				Item.garment_search('color', ["Indigo"]).should_not include(@black_jean)
+				Item.garment_search('color', ["black"]).should include(@black_jean)
+				Item.garment_search('color', ["black"]).should_not include(@indigo_jean)
 			end
 
 			it "should be able to find more than one color type" do
@@ -176,7 +176,7 @@ describe Item do
 			end
 
 			it "should give me all the jeans with non-existent param" do
-				Item.garment_search('color', "test").should include(@indigo_jean && @black_jean)
+				Item.garment_search('color', ["test"]).should include(@indigo_jean && @black_jean)
 			end
 
 			it "should give me all jeans with no params[:color]" do
@@ -193,10 +193,10 @@ describe Item do
 			end
 
 			it "should find the jean with the brand I'm looking for" do
-				Item.garment_search('brand', "3sixteen").should include(@sixteen_jean)
-				Item.garment_search('brand', "3sixteen").should_not include(@unbranded_jean)
-				Item.garment_search('brand', "Unbranded").should include(@unbranded_jean)
-				Item.garment_search('brand', "Unbranded").should_not include(@sixteen_jean)
+				Item.garment_search('brand', ["3sixteen"]).should include(@sixteen_jean)
+				Item.garment_search('brand', ["3sixteen"]).should_not include(@unbranded_jean)
+				Item.garment_search('brand', ["Unbranded"]).should include(@unbranded_jean)
+				Item.garment_search('brand', ["Unbranded"]).should_not include(@sixteen_jean)
 			end
 
 			it "should be able to find more than one brand type" do
@@ -204,7 +204,7 @@ describe Item do
 			end
 
 			it "should give me all the jeans with non-existent param" do
-				Item.garment_search('brand', "test").should include(@sixteen_jean && @unbranded_jean)
+				Item.garment_search('brand', ["test"]).should include(@sixteen_jean && @unbranded_jean)
 			end
 
 			it "should give me all jeans with no params[:brand]" do

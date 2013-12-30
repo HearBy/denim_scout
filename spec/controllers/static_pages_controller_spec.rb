@@ -38,7 +38,7 @@ describe StaticPagesController do
 				end
 
 				it "should only return jeans with that query" do
-					get :home, { :fit => "skinny" }
+					get :home, { :fit => ["skinny"] }
 					assigns(:jeans).map(&:id).should == [@skinny_jean.id]
 				end
 			end
@@ -52,7 +52,7 @@ describe StaticPagesController do
 				end
 
 				it "should only return jeans with that query" do
-					get :home, { :made_in => "USA" }
+					get :home, { :made_in => ["USA"] }
 					assigns(:jeans).map(&:id).should == [@USA_jean.id]
 				end
 			end
@@ -66,7 +66,7 @@ describe StaticPagesController do
 				end
 
 				it "should only return jeans with that query" do
-					get :home, { :fabric_origin => "Kuroki Mills" }
+					get :home, { :fabric_origin => ["Kuroki Mills"] }
 					assigns(:jeans).map(&:id).should == [@kuroki_mills_jean.id]
 				end
 			end
@@ -80,7 +80,7 @@ describe StaticPagesController do
 				end
 
 				it "should only return jeans with that query" do
-					get :home, { :color => "Indigo" }
+					get :home, { :color => ["Indigo"] }
 					assigns(:jeans).map(&:id).should == [@indigo_jean.id]
 				end
 			end
@@ -94,7 +94,7 @@ describe StaticPagesController do
 				end
 
 				it "should only return jeans with that query" do
-					get :home, { :brand => "3sixteen" }
+					get :home, { :brand => ["3sixteen"] }
 					assigns(:jeans).map(&:id).should == [@sixteen_jean.id]
 				end
 			end
