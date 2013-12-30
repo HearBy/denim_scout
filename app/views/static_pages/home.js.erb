@@ -1,6 +1,6 @@
 $(".simple_filters_link").bind('ajax:success', function() { 
 	$('.simple_filters_link').hide();
-	$('.simple_filters_container').show().html('<%= j render "simple_filters" %>');
+	$('.simple_filters_container').show().html('<%= j render partial: "simple_filters", locals: {jeans: @jeans} %>');
 	$(document).foundation('forms').init();
 
 	$(function() {
@@ -20,6 +20,11 @@ $(".simple_filters_link").bind('ajax:success', function() {
 		" oz - " + $( "#slider-weight" ).slider( "values", 1 ) + " oz" );
 	});
 });
+
+
+
+
+
 
 $(".more_filters_link").bind('ajax:success', function() { 
 	$('.more_filters_link').hide();

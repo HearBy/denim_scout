@@ -46,8 +46,8 @@
 
 	<br>
 
-	<% if params[:min_denim_weight] %>
-		<%= render "simple_filters" %>
+ 	<% if params[:min_denim_weight] %>
+		<%= render partial: "simple_filters", locals: {jeans: @jeans} %>
 	<% else %>
 		<%= link_to "More Filters", root_path, 
 				class: "simple_filters_link button small radius secondary", 
