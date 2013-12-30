@@ -33,7 +33,7 @@
 					<tbody>
 						<tr>
 							<td>
-								<b>True Waist</b> <%= jean.waist %>
+								<b>True Waist</b> <%= jean.waist %>"
 							</td>
 							<td>
 								<b>Sanforized</b> <%= jean.garment.sanforized %>
@@ -41,15 +41,15 @@
 						</tr>
 						<tr>
 							<td>
-								<b>Front Rise</b> <%= number_with_precision(jean.front_rise, :precision => 2) %>
+								<b>Front Rise</b> <%= number_with_precision(jean.front_rise, :precision => 2) %>"
 							</td>
 							<td>
-								<b>Weight</b> <%= jean.garment.denim_weight %>
+								<b>Weight</b> <%= jean.garment.denim_weight %> oz
 							</td>
 						</tr>
 						<tr>
 							<td>
-								<b>Thigh</b> <%= number_with_precision(jean.thigh, :precision => 2) %>
+								<b>Thigh</b> <%= number_with_precision(jean.thigh, :precision => 2) %>"
 							</td>
 							<td>
 								<b>Made In</b> <%= jean.garment.made_in %>
@@ -57,7 +57,7 @@
 						</tr>
 						<tr>
 							<td>
-								<b>Knee</b> <%= number_with_precision(jean.knee, :precision => 2) %>
+								<b>Knee</b> <%= number_with_precision(jean.knee, :precision => 2) %>"
 							</td>
 							<td>
 								<b>Origin</b> <%= jean.garment.fabric_origin %>
@@ -65,7 +65,7 @@
 						</tr>
 						<tr>
 							<td>
-								<b>Leg</b> <%= number_with_precision(jean.leg_opening, :precision => 2) %>
+								<b>Leg</b> <%= number_with_precision(jean.leg_opening, :precision => 2) %>"
 							</td>
 							<td>
 								<b>Color</b> <%= jean.garment.color %>
@@ -78,7 +78,9 @@
 
 		<div class="row">
 			<div class="large-6 columns">
-				<span class="modal-price">$<%= jean.garment.price %></span>
+				<span class="modal-price">
+					$<%= number_with_precision(jean.garment.price, :precision => 2) %>
+				</span>
 			</div>
 
 			<div class="large-6 columns">

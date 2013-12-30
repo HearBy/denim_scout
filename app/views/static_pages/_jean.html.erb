@@ -11,48 +11,32 @@
 
 <div class="row">
 	<div class="large-12 columns">
-		<b><%= link_to jean.garment.brand, '#', "data-reveal-id" => "my_#{jean.id}"  %></b>
+		<div class="jean-brand">
+			<%= link_to jean.garment.brand, '#', "data-reveal-id" => "my_#{jean.id}"  %>
+		</div>
 	</div>
 </div>
 
 <div class="row">
 	<div class="large-12 columns">
-		<%= jean.garment.model %> (true waist <%= jean.waist %>)
+		<div class="jean-model">
+			<%= jean.garment.model %> (Size <%= jean.tag_size %>)
+		</div>
 	</div>
 </div>
 
 <div class="row">
 	<div class="large-12 columns">
-		$<%= jean.garment.price %>	
+		<div class="jean-fit">
+			<%= jean.garment.fit.capitalize %>	
+		</div>
 	</div>
 </div>
 
 <div class="row">
 	<div class="large-12 columns">
-		<%= jean.garment.fit %>	
-	</div>
-</div>
-
-<div class="row">
-	<div class="large-12 columns">
-		front_rise <%= jean.front_rise %>	
-	</div>
-</div>
-
-<div class="row">
-	<div class="large-12 columns">
-		thigh <%= jean.thigh %>	
-	</div>
-</div>
-
-<div class="row">
-	<div class="large-12 columns">
-		knee <%= jean.knee %>	
-	</div>
-</div>
-
-<div class="row">
-	<div class="large-12 columns">
-		leg_opening <%= jean.leg_opening %>	
+		<div class="jean-price">
+			$<%= number_with_precision(jean.garment.price, :precision => 2) %>
+		</div>
 	</div>
 </div>

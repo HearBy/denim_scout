@@ -2,10 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.jean-container {
-	padding-top:40px;
-}
-
 // Sizer Form
 
 .sizer-button {
@@ -14,6 +10,46 @@
 
 .clear-link {
 	font-size:0.9em;
+}
+
+// Jean container
+
+.jean-container {
+	padding-top:10px;
+}
+
+.bottom-border {
+	border-color: #585858;
+}
+
+.jean-brand {
+	font-weight:bold;
+	font-size:1.1em;
+	display:block;
+	text-align:center;
+	margin-top:3px;
+}
+
+.jean-model {
+	font-style: italic;
+	display:block;
+	text-align:center;
+	margin-top:3px;
+}
+
+.jean-fit {
+	display:block;
+	text-align:center;
+	margin-top:3px;
+}
+
+.jean-price {
+	font-size:1.2em;
+	font-weight:lighter;
+	display:block;
+	text-align:center;
+	margin-top:10px;
+	margin-bottom:-15px;
 }
 
 // MODALS
