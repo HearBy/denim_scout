@@ -41,11 +41,12 @@ ActiveAdmin.register Item do
     end
   end
   
-  filter :garment_brand, :as => :select, collection: Garment.all.map(&:brand).uniq
-  filter :garment_model, :as => :select, collection: Garment.all.map(&:model).uniq
+  filter :garment_brand, :as => :select, collection: Garment.all.map(&:brand).uniq.sort_by{|e| e}
+  filter :garment_model, :as => :select, collection: Garment.all.map(&:model).uniq.sort_by{|e| e}
   filter :tag_size
 
   index do
+    selectable_column
     column "Brand", sortable: 'garments.brand' do |item|
       item.garment.brand
     end

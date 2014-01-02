@@ -28,6 +28,7 @@ ActiveAdmin.register Garment do
   filter :fit, :as => :check_boxes, collection: Garment.all.map(&:fit).uniq
   
   index do
+    selectable_column
     column :model, :sortable => :model do |garment|
       link_to garment.model, garment.url, :target => "_blank"
     end
