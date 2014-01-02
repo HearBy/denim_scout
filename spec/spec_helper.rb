@@ -40,5 +40,9 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
 
+  # Include the Capybara DSL for the sake of integration tests.
+  config.include Capybara::DSL
+
   config.include FactoryGirl::Syntax::Methods
+  config.include Devise::TestHelpers, :type => :controller
 end

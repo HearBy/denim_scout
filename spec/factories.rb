@@ -1,4 +1,11 @@
 FactoryGirl.define do 
+	factory :admin_user do
+		email 	  			  'test@example.com'
+		password 			  'rawrscout'
+		password_confirmation 'rawrscout'
+		role 				  'admin' 
+	end
+
 	factory :garment do
 		model 		  "SL-100x"
 		brand 		  "3sixteen"
