@@ -7,9 +7,10 @@ end
 
 def make_garments
 	# Create initial admins
-	AdminUser.create!(:email => 'mattjstar@gmail.com', :password => 'rawrscout', :password_confirmation => 'rawrscout')
-	AdminUser.create!(:email => 'deshuck@gmail.com', :password => 'rawrscout', :password_confirmation => 'rawrscout')
-	AdminUser.create!(:email => 'nick@rawrdenim.com', :password => 'rawrscout', :password_confirmation => 'rawrscout')
+	AdminUser.create!(:email => 'mattjstar@gmail.com', :password => 'rawrscout', :password_confirmation => 'rawrscout', :role => 'admin')
+	AdminUser.create!(:email => 'deshuck@gmail.com', :password => 'rawrscout', :password_confirmation => 'rawrscout', :role => 'admin')
+	AdminUser.create!(:email => 'nick@rawrdenim.com', :password => 'rawrscout', :password_confirmation => 'rawrscout', :role => 'admin')
+	AdminUser.create!(:email => 'test@rawrdenim.com', :password => 'rawrscout', :password_confirmation => 'rawrscout', :role => 'item_only')
 
 	#1 3sixteen SL-100x
 	Garment.create!(model: "SL-100x",
