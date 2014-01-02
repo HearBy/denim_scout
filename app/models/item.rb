@@ -1,6 +1,8 @@
 class Item < ActiveRecord::Base
 	belongs_to :garment
 
+	validates :garment_id, presence: true
+
 	validates_numericality_of :waist, 		greater_than_or_equal_to: 26, less_than_or_equal_to: 42
 	validates_numericality_of :front_rise, 	greater_than_or_equal_to: 8, less_than_or_equal_to: 14
 	validates_numericality_of :thigh, 		greater_than_or_equal_to: 9, less_than_or_equal_to: 15 

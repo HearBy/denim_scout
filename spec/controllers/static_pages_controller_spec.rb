@@ -31,15 +31,15 @@ describe StaticPagesController do
 		describe "garment_search" do
 			describe "fit" do
 				before do
-					@skinny_garment = 		 create(:garment, fit: "skinny")
+					@tapered_garment = 		 create(:garment, fit: "tapered")
 					@slim_straight_garment = create(:garment, fit: "slim straight")
-					@skinny_jean = 			 create(:item, garment: @skinny_garment)
+					@tapered_jean = 		 create(:item, garment: @tapered_garment)
 					@slim_straight_jean = 	 create(:item, garment: @slim_straight_garment)
 				end
 
 				it "should only return jeans with that query" do
-					get :home, { :fit => ["skinny"] }
-					assigns(:jeans).map(&:id).should == [@skinny_jean.id]
+					get :home, { :fit => ["tapered"] }
+					assigns(:jeans).map(&:id).should == [@tapered_jean.id]
 				end
 			end
 

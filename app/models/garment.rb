@@ -1,5 +1,5 @@
 class Garment < ActiveRecord::Base
-	has_many :items
+	has_many :items, dependent: :destroy
 
 	validates :model, presence: true
 	validates :brand, presence: true
@@ -8,7 +8,7 @@ class Garment < ActiveRecord::Base
 	validates :price, presence: true
 	validates :denim_weight, presence: true
 	validates :color, presence: true
-	validates :fit, presence: true, :inclusion => { :in => ["straight", "slim straight", "skinny", "tapered", "slim tapered"] }
+	validates :fit, presence: true, :inclusion => { :in => ["straight", "slim straight", "tapered", "slim tapered"] }
 	validates :url, presence: true
 	validates :photo_url, presence: true
 

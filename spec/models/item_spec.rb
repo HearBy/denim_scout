@@ -74,29 +74,29 @@ describe Item do
 	describe "garment_search" do
 		describe "fit" do
 			before do
-				@skinny_garment = 		 create(:garment, fit: "skinny")
+				@tapered_garment = 		 create(:garment, fit: "tapered")
 				@slim_straight_garment = create(:garment, fit: "slim straight")
-				@skinny_jean = 			 create(:item, garment: @skinny_garment)
+				@tapered_jean = 			 create(:item, garment: @tapered_garment)
 				@slim_straight_jean = 	 create(:item, garment: @slim_straight_garment)
 			end
 
 			it "should find the jean with the fit I'm looking for" do
-				Item.garment_search('fit', ["skinny"]).should include(@skinny_jean)
-				Item.garment_search('fit', ["skinny"]).should_not include(@slim_straight_jean)
+				Item.garment_search('fit', ["tapered"]).should include(@tapered_jean)
+				Item.garment_search('fit', ["tapered"]).should_not include(@slim_straight_jean)
 				Item.garment_search('fit', ["slim straight"]).should include(@slim_straight_jean)
-				Item.garment_search('fit', ["slim straight"]).should_not include(@skinny_jean)
+				Item.garment_search('fit', ["slim straight"]).should_not include(@tapered_jean)
 			end
 
 			it "should be able to find more than one fit type" do
-				Item.garment_search('fit', ["skinny", "slim straight"]).should include(@skinny_jean && @slim_straight_jean)
+				Item.garment_search('fit', ["tapered", "slim straight"]).should include(@tapered_jean && @slim_straight_jean)
 			end
 
 			it "should give me all the jeans with non-existent param" do
-				Item.garment_search('fit', ["test"]).should include(@skinny_jean && @slim_straight_jean)
+				Item.garment_search('fit', ["test"]).should include(@tapered_jean && @slim_straight_jean)
 			end
 
 			it "should give me all jeans with no params[:fit]" do
-				Item.garment_search('fit', nil).should include(@skinny_jean && @slim_straight_jean)
+				Item.garment_search('fit', nil).should include(@tapered_jean && @slim_straight_jean)
 			end
 		end
 

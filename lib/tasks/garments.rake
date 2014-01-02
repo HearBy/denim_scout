@@ -6,6 +6,11 @@ namespace :db do
 end
 
 def make_garments
+	# Create initial admins
+	AdminUser.create!(:email => 'mattjstar@gmail.com', :password => 'rawrscout', :password_confirmation => 'rawrscout')
+	AdminUser.create!(:email => 'deshuck@gmail.com', :password => 'rawrscout', :password_confirmation => 'rawrscout')
+	AdminUser.create!(:email => 'nick@rawrdenim.com', :password => 'rawrscout', :password_confirmation => 'rawrscout')
+
 	#1 3sixteen SL-100x
 	Garment.create!(model: "SL-100x",
 				   brand: "3sixteen",

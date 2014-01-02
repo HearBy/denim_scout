@@ -14,6 +14,27 @@ ActiveAdmin.register Item do
   #  permitted
   # end
 
+  menu priority: 2
+
+  permit_params :tag_size, :waist, :front_rise, :thigh, :knee, :leg_opening,
+                :inseam, :garment_id
+  
+  form do |f|
+    f.inputs 'Garment' do
+      f.input :garment, :as => :select, :member_label => :model
+    end
+    f.inputs 'Size Information' do
+      f.input :tag_size
+      f.input :waist
+      f.input :front_rise
+      f.input :thigh
+      f.input :knee
+      f.input :leg_opening
+      f.input :inseam
+    end
+    f.actions
+  end
+
   controller do
     def scoped_collection
       resource_class.includes(:garment) # prevents N+1 queries to your database

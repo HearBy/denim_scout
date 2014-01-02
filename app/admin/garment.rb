@@ -14,6 +14,11 @@ ActiveAdmin.register Garment do
   #  permitted
   # end
 
+  menu priority: 1
+
+  permit_params :model, :brand, :fabric_origin, :made_in, :price, :denim_weight,
+                :color, :fit, :sanforized, :stretch, :selvedge, :url, :photo_url
+
   filter :brand, :as => :select
   filter :model, :as => :select
   filter :fabric_origin, :as => :select
@@ -23,7 +28,9 @@ ActiveAdmin.register Garment do
   filter :fit, :as => :check_boxes, collection: Garment.all.map(&:fit).uniq
   
   index do
-    column :model
+    column :model, :sortable => :model do |garment|
+      link_to garment.model, garment.url, :target => "_blank"
+    end
     column :brand
     column :fabric_origin
     column :made_in

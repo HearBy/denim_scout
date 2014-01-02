@@ -41,18 +41,6 @@ describe Garment do
 		
 		it { should_not be_valid }
 
-		describe "skinny" do
-			describe "valid" do
-			    before { @garment.fit = "skinny" }
-			    it { should be_valid }
-			end
-
-			describe "not valid" do
-			    before { @garment.fit = "Skinny" }
-			    it { should_not be_valid }
-			end
-		end
-
 		describe "slim straight" do
 			describe "valid" do
 			    before { @garment.fit = "slim straight" }
